@@ -167,7 +167,7 @@
                 </a>
                 <div class="dropdown-menu dropdown-menu-end dropdown-menu-animate-up" aria-labelledby="drop2">
                   <div class="message-body">
-                    <a href="javascript:void(0)" class="d-flex align-items-center gap-2 dropdown-item">
+                    <a href="{{route('admin.profile')}}" class="d-flex align-items-center gap-2 dropdown-item">
                       <i class="ti ti-user fs-6"></i>
                       <p class="mb-0 fs-3">My Profile</p>
                     </a>
@@ -189,13 +189,7 @@
       </header>
       <!--  Header End -->
       <div class="container-fluid">
-        <div class="card w-100 h-100 position-relative overflow-hidden">
-          <div class="card-body">
-            <h5 class="card-title fw-semibold mb-4">Icons</h5>
-            <iframe src="https://tabler-icons.io/" frameborder="0" style="height: calc(100vh - 250px); width: 100%;"
-              data-simplebar=""></iframe>
-          </div>
-        </div>
+        @yield('content')
         <div class="py-6 px-6 text-center">
           <p class="mb-0 fs-4">Design and Developed by <a href="https://adminmart.com/" target="_blank"
               class="pe-1 text-primary text-decoration-underline">AdminMart.com</a> Distributed by <a href="https://themewagon.com/" target="_blank"
