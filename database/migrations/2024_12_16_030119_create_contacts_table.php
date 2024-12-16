@@ -12,7 +12,9 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('contacts', function (Blueprint $table) {
-            $table->id();
+            $table->integer('id_contact')->primary()->autoIncrement();
+            $table->string('no_tlp',15)->unique();
+            $table->string('alamat_dudi', 50);
             $table->timestamps();
         });
     }
