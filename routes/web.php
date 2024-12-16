@@ -5,7 +5,7 @@ use App\Http\Controllers\Auth\AdminLoginController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('user.layouts.app');
 });
 
 route::middleware(['guest'])->group(function () {
