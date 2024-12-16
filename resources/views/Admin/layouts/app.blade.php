@@ -1,136 +1,215 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
 
 <head>
-    <meta charset="utf-8">
-    <title>Lisfera - @yield('title')</title>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="" name="keywords">
-    <meta content="" name="description">
-
-    <!-- Favicon -->
-    <link href="img/favicon.ico" rel="icon">
-
-    <!-- Google Web Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700&display=swap" rel="stylesheet">
-
-    <!-- Icon Font Stylesheet -->
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
-
-    <!-- Customized Bootstrap Stylesheet -->
-    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
-    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.datatables.net/2.1.8/css/dataTables.bootstrap5.css">
-
-    <!-- Template Stylesheet -->
-    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SeoDash Free Bootstrap Admin Template by Adminmart</title>
+  <link rel="shortcut icon" type="image/png" href="{{ asset('assets/images/logos/seodashlogo.png') }}" />
+  <link rel="stylesheet" href="{{ asset('node_modules/simplebar/dist/simplebar.min.css')}}">
+  <link rel="stylesheet" href="{{ asset('assets/css/styles.min.css') }}" />
 </head>
 
 <body>
-    <div class="container-xxl position-relative bg-white d-flex p-0">
-        <!-- Spinner Start -->
-        <div id="spinner" class="show bg-white position-fixed translate-middle w-100 vh-100 top-50 start-50 d-flex align-items-center justify-content-center">
-            <div class="spinner-border text-primary" style="width: 3rem; height: 3rem;" role="status">
-                <span class="sr-only">Loading...</span>
-            </div>
+  <!--  Body Wrapper -->
+  <div class="page-wrapper" id="main-wrapper" data-layout="vertical" data-navbarbg="skin6" data-sidebartype="full"
+    data-sidebar-position="fixed" data-header-position="fixed">
+    <!-- Sidebar Start -->
+    <aside class="left-sidebar">
+      <!-- Sidebar scroll-->
+      <div>
+        <div class="brand-logo d-flex align-items-center justify-content-between">
+          <a href="{{ asset('index.html') }}" class="text-nowrap logo-img">
+            <img src="{{ asset('assets/images/logos/logo-light.svg') }}" alt="" />
+          </a>
+          <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
+            <i class="ti ti-x fs-8"></i>
+          </div>
         </div>
-        <!-- Spinner End -->
-
-
-        <!-- Sidebar Start -->
-        <div class="sidebar pe-4 pb-3">
-            <nav class="navbar bg-light navbar-light">
-                <a href="{{ route('admin.dashboard') }}" class="navbar-brand mx-4 mb-3">
-                    <h3 class="text-primary"><i class="fa fa-hashtag me-2"></i>Lisfera</h3>
-                </a>
-                <div class="d-flex align-items-center ms-4 mb-4">
-                    <div class="position-relative">
-                        <img class="rounded-circle" src="{{ asset('storage/' . Auth::guard('admin')) }}" alt="" style="width: 40px; height: 40px;">
-                        <div class="bg-success rounded-circle border border-2 border-white position-absolute end-0 bottom-0 p-1"></div>
-                    </div>
-                    <div class="ms-3">
-                        <h6 class="mb-0">{{ Auth::guard('admin')->user()->nama_admin }}</h6>
-                        <span>Admin</span>
-                    </div>
-                </div>
-                <div class="navbar-nav w-100">
-                    <a href="{{ route('admin.dashboard') }}" class="nav-item nav-link {{ request()->routeIs('admin.dashboard') ? 'active' : '' }}"><i class="fa fa-tachometer-alt me-2"></i>Dashboard</a>
-                </div>
-            </nav>
-        </div>
-        <!-- Sidebar End -->
-
-
-        <!-- Content Start -->
-        <div class="content">
-            <!-- Navbar Start -->
-            <nav class="navbar navbar-expand bg-light navbar-light sticky-top px-4 py-0">
-                <a href="{{ route('admin.dashboard') }}" class="navbar-brand d-flex d-lg-none me-4">
-                    <h2 class="text-primary mb-0"><i class="fa fa-hashtag"></i></h2>
-                </a>
-                <a href="#" class="sidebar-toggler flex-shrink-0">
-                    <i class="fa fa-bars"></i>
-                </a>
-                <form class="d-none d-md-flex ms-4">
-                    <input class="form-control border-0" type="search" placeholder="Search">
-                </form>
-                <div class="navbar-nav align-items-center ms-auto">
-
-                    <div class="nav-item dropdown">
-                        <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">
-                            <img class="rounded-circle me-lg-2" src="{{ asset('storage/' . Auth::guard('admin')) }}" alt="" style="width: 40px; height: 40px;">
-                            <span class="d-none d-lg-inline-flex">{{ Auth::guard('admin')->user()->nama_admin }}</span>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-end bg-light border-0 rounded-0 rounded-bottom m-0">
-                            <a href="{{ route('admin.profile') }}" class="dropdown-item">My Profile</a>
-                            <a href="{{ route('admin.logout') }}" class="dropdown-item">Log Out</a>
-                        </div>
-                    </div>
-                </div>
-            </nav>
-            <!-- Navbar End -->
-
-
-            <!-- Sale & Revenue Start -->
-            <div class="container-fluid pt-4 px-4">
-               @yield('content')
+        <!-- Sidebar navigation-->
+        <nav class="sidebar-nav scroll-sidebar" data-simplebar="">
+          <ul id="sidebarnav">
+            <li class="nav-small-cap">
+              <i class="ti ti-dots nav-small-cap-icon fs-6"></i>
+              <span class="hide-menu">Home</span>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="{{ asset('index.html') }}" aria-expanded="false">
+                <span>
+                  <iconify-icon icon="solar:home-smile-bold-duotone" class="fs-6"></iconify-icon>
+                </span>
+                <span class="hide-menu">Dashboard</span>
+              </a>
+            </li>
+            <li class="nav-small-cap">
+              <i class="ti ti-dots nav-small-cap-icon fs-6"></i>
+              <span class="hide-menu">UI COMPONENTS</span>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="{{ asset('ui-buttons.html') }}" aria-expanded="false">
+                <span>
+                  <iconify-icon icon="solar:layers-minimalistic-bold-duotone" class="fs-6"></iconify-icon>
+                </span>
+                <span class="hide-menu">Buttons</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="{{ asset('ui-alerts.html') }}" aria-expanded="false">
+                <span>
+                  <iconify-icon icon="solar:danger-circle-bold-duotone" class="fs-6"></iconify-icon>
+                </span>
+                <span class="hide-menu">Alerts</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="{{ asset('ui-card.html') }}" aria-expanded="false">
+                <span>
+                  <iconify-icon icon="solar:bookmark-square-minimalistic-bold-duotone" class="fs-6"></iconify-icon>
+                </span>
+                <span class="hide-menu">Card</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="{{ asset('ui-forms.html') }}" aria-expanded="false">
+                <span>
+                  <iconify-icon icon="solar:file-text-bold-duotone" class="fs-6"></iconify-icon>
+                </span>
+                <span class="hide-menu">Forms</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="{{ asset('ui-typography.html') }}" aria-expanded="false">
+                <span>
+                  <iconify-icon icon="solar:text-field-focus-bold-duotone" class="fs-6"></iconify-icon>
+                </span>
+                <span class="hide-menu">Typography</span>
+              </a>
+            </li>
+            <li class="nav-small-cap">
+              <iconify-icon icon="solar:menu-dots-linear" class="nav-small-cap-icon fs-6" class="fs-6"></iconify-icon>
+              <span class="hide-menu">AUTH</span>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="{{ asset('authentication-login.html') }}" aria-expanded="false">
+                <span>
+                  <iconify-icon icon="solar:login-3-bold-duotone" class="fs-6"></iconify-icon>
+                </span>
+                <span class="hide-menu">Login</span>
+              </a>
+            </li>
+            <li class="nav-small-cap">
+              <iconify-icon icon="solar:menu-dots-linear" class="nav-small-cap-icon fs-4" class="fs-6"></iconify-icon>
+              <span class="hide-menu">EXTRA</span>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="{{ asset('icon-tabler.html') }}" aria-expanded="false">
+                <span>
+                  <iconify-icon icon="solar:sticker-smile-circle-2-bold-duotone" class="fs-6"></iconify-icon>
+                </span>
+                <span class="hide-menu">Icons</span>
+              </a>
+            </li>
+            <li class="sidebar-item">
+              <a class="sidebar-link" href="{{ aseet('sample-page.html') }}" aria-expanded="false">
+                <span>
+                  <iconify-icon icon="solar:planet-3-bold-duotone" class="fs-6"></iconify-icon>
+                </span>
+                <span class="hide-menu">Sample Page</span>
+              </a>
+            </li>
+          </ul>
+          <div class="unlimited-access hide-menu bg-primary-subtle position-relative mb-7 mt-7 rounded-3">
+            <div class="d-flex">
+              <div class="unlimited-access-title me-3">
+                <h6 class="fw-semibold fs-4 mb-6 text-dark w-75">Upgrade to pro</h6>
+                <a href="#" target="_blank"
+                  class="btn btn-primary fs-2 fw-semibold lh-sm">Buy Pro</a>
+              </div>
+              <div class="unlimited-access-img">
+                <img src="{{ asset('assets/images/backgrounds/rocket.png') }}" alt="" class="img-fluid">
+              </div>
             </div>
-            <!-- Sale & Revenue End -->
-
-            <!-- Footer Start -->
-            <div class="container-fluid pt-4 px-4">
-                <div class="bg-light rounded-top p-4">
-                    <div class="row">
-                        <div class="col-12 col-sm-6 text-center text-sm-start">
-                            &copy; <a href="#">Your Site Name</a>, All Right Reserved.
-                        </div>
-                        <div class="col-12 col-sm-6 text-center text-sm-end">
-                            <!--/*** This template is free as long as you keep the footer author’s credit link/attribution link/backlink. If you'd like to use the template without the footer author’s credit link/attribution link/backlink, you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". Thank you for your support. ***/-->
-                            Designed By <a href="#">Lisfera</a>
-                        </br>
-                        Distributed By <a class="border-bottom" href="#" target="_blank">El</a>
-                        </div>
-                    </div>
+          </div>
+        </nav>
+        <!-- End Sidebar navigation -->
+      </div>
+      <!-- End Sidebar scroll-->
+    </aside>
+    <!--  Sidebar End -->
+    <!--  Main wrapper -->
+    <div class="body-wrapper">
+      <!--  Header Start -->
+      <header class="app-header">
+        <nav class="navbar navbar-expand-lg navbar-light">
+          <ul class="navbar-nav">
+            <li class="nav-item d-block d-xl-none">
+              <a class="nav-link sidebartoggler nav-icon-hover" id="headerCollapse" href="javascript:void(0)">
+                <i class="ti ti-menu-2"></i>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link nav-icon-hover" href="javascript:void(0)">
+                <i class="ti ti-bell-ringing"></i>
+                <div class="notification bg-primary rounded-circle"></div>
+              </a>
+            </li>
+          </ul>
+          <div class="navbar-collapse justify-content-end px-0" id="navbarNav">
+            <ul class="navbar-nav flex-row ms-auto align-items-center justify-content-end">
+              <a href="#" target="_blank"
+                class="btn btn-primary me-2"><span class="d-none d-md-block">Check Pro Version</span> <span class="d-block d-md-none">Pro</span></a>
+              <a href="#" target="_blank"
+                class="btn btn-success"><span class="d-none d-md-block">Download Free </span> <span class="d-block d-md-none">Free</span></a>
+              <li class="nav-item dropdown">
+                <a class="nav-link nav-icon-hover" href="javascript:void(0)" id="drop2" data-bs-toggle="dropdown"
+                  aria-expanded="false">
+                  <img src="{{ asset('assets/images/profile/user-1.jpg') }}" alt="" width="35" height="35" class="rounded-circle">
+                </a>
+                <div class="dropdown-menu dropdown-menu-end dropdown-menu-animate-up" aria-labelledby="drop2">
+                  <div class="message-body">
+                    <a href="javascript:void(0)" class="d-flex align-items-center gap-2 dropdown-item">
+                      <i class="ti ti-user fs-6"></i>
+                      <p class="mb-0 fs-3">My Profile</p>
+                    </a>
+                    <a href="javascript:void(0)" class="d-flex align-items-center gap-2 dropdown-item">
+                      <i class="ti ti-mail fs-6"></i>
+                      <p class="mb-0 fs-3">My Account</p>
+                    </a>
+                    <a href="javascript:void(0)" class="d-flex align-items-center gap-2 dropdown-item">
+                      <i class="ti ti-list-check fs-6"></i>
+                      <p class="mb-0 fs-3">My Task</p>
+                    </a>
+                    <a href="{{ asset('authentication-login.html') }}" class="btn btn-outline-primary mx-3 mt-2 d-block">Logout</a>
+                  </div>
                 </div>
-            </div>
-            <!-- Footer End -->
+              </li>
+            </ul>
+          </div>
+        </nav>
+      </header>
+      <!--  Header End -->
+      <div class="container-fluid">
+        <div class="card w-100 h-100 position-relative overflow-hidden">
+          <div class="card-body">
+            <h5 class="card-title fw-semibold mb-4">Icons</h5>
+            <iframe src="https://tabler-icons.io/" frameborder="0" style="height: calc(100vh - 250px); width: 100%;"
+              data-simplebar=""></iframe>
+          </div>
         </div>
-        <!-- Content End -->
-
-
-        <!-- Back to Top -->
-        <a href="#" class="btn btn-lg btn-primary btn-lg-square back-to-top"><i class="bi bi-arrow-up"></i></a>
+        <div class="py-6 px-6 text-center">
+          <p class="mb-0 fs-4">Design and Developed by <a href="https://adminmart.com/" target="_blank"
+              class="pe-1 text-primary text-decoration-underline">AdminMart.com</a> Distributed by <a href="https://themewagon.com/" target="_blank"
+              class="pe-1 text-primary text-decoration-underline">ThemeWagon</a></p>
+        </div>
+      </div>
     </div>
-
-    <!-- JavaScript Libraries -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="https://cdn.datatables.net/2.1.8/js/dataTables.js"></script>
-    <script src="https://cdn.datatables.net/2.1.8/js/dataTables.bootstrap5.js"></script>
-    <!-- Template Javascript -->
-    <script src="{{ asset('js/main.js') }}"></script>
+  </div>
+  <script src="{{ asset('assets/libs/jquery/dist/jquery.min.js') }}"></script>
+  <script src="{{ asset('assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
+  <script src="{{ asset('assets/libs/simplebar/dist/simplebar.js') }}"></script>
+  <script src="{{ asset('assets/js/sidebarmenu.js') }}"></script>
+  <script src="{{ asset('assets/js/app.min.js') }}"></script>
+  <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.8/dist/iconify-icon.min.js"></script>
 </body>
 
 </html>
