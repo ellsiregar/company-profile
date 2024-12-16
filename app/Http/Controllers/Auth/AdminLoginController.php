@@ -20,10 +20,10 @@ class AdminLoginController extends Controller
             'password' => 'required',
         ]);
 
-        if (Auth::guard('admin')->attempt($credentials)) {
+        if (Auth::attempt($credentials)) {
             return redirect()->route('admin.dashboard');
         }
 
-        return back()->withErrors(['login_error' => 'username atau password salah.'])->onlyInput('username');
+        return back()->withErrors(['login_error' => 'Username atau Password Salah.']) ->onlyInput('username');
     }
 }
