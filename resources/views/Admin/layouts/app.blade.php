@@ -110,7 +110,7 @@
               </a>
             </li>
             <li class="sidebar-item">
-              <a class="sidebar-link" href="{{ aseet('sample-page.html') }}" aria-expanded="false">
+              <a class="sidebar-link" href="sample-page.html" aria-expanded="false">
                 <span>
                   <iconify-icon icon="solar:planet-3-bold-duotone" class="fs-6"></iconify-icon>
                 </span>

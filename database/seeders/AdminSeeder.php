@@ -2,7 +2,7 @@
 
 namespace Database\Seeders;
 
-use App\Models\admin;
+use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
@@ -18,18 +18,12 @@ class AdminSeeder extends Seeder
                 'username' => 'admin1',
                 'password' => bcrypt('password123'),
                 'nama_admin' => 'Administartor 1',
-                'foto' => null,
+                'email' => 'admin@example.com',
             ],
-            [
-                'username' => 'admin2',
-                'password' => bcrypt('password123'),
-                'nama_admin' => 'Administartor 2',
-                'foto' => null,
-            ]
             ];
 
             foreach ($admins as $admin) {
-              admin::create($admin);
+              User::create($admin);
             }
     }
 }

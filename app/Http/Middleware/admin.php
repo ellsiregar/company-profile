@@ -16,9 +16,9 @@ class admin
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (!Auth::guard('admin')->check()) {
-            return redirect()->route('admin.login')->withErrors(['login_eror' => 'Silahkan login untuk melanjutkan']);
+        if (Auth::check()) {
+            return $next($request);
         }
-        return $next($request);
+        return redirect()->route('admin.login')->withErrors(['login_eror' => 'Silahkan login untuk melanjutkan']);
     }
 }

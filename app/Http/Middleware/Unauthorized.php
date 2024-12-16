@@ -7,7 +7,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Symfony\Component\HttpFoundation\Response;
 
-class Unauthhirized
+class Unauthorized
 {
     /**
      * Handle an incoming request.
@@ -16,9 +16,9 @@ class Unauthhirized
      */
     public function handle(Request $request, Closure $next): Response
     {
-        if (Auth::guard('admin')->check()) {
-            return redirect()->route('admin.dashboard');
+        if (!Auth::check()) {
             return $next($request);
         }
+        return redirect()->route('admin.dashboard');
     }
 }
