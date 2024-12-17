@@ -25,8 +25,8 @@ route::middleware(['admin'])->group(function () {
     route::get('/admin/menu', [MenuController::class, 'menu'])->name('admin.menu');
     route::get('/admin/menu/tambah', [MenuController::class, 'create'])->name('admin.menu.create');
     route::post('/admin/menu/tambah', [MenuController::class, 'store'])->name('admin.menu.store');
-    route::get('/admin/menu/edit', [MenuController::class, 'edit'])->name('admin.menu.edit');
-    route::put('/admin/menu/edit', [MenuController::class, 'update'])->name('admin.menu.update');
+    route::get('/admin/menu/edit/{id}', [MenuController::class, 'edit'])->name('admin.menu.edit');
+    route::put('/admin/menu/edit/{id}', [MenuController::class, 'update'])->name('admin.menu.update');
     route::get('/admin/menu/delete', [MenuController::class, 'delete'])->name('admin.menu.delete');
 
     route::get('/admin/team', [TeamController::class, 'team'])->name('admin.team');

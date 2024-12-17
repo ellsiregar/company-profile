@@ -16,7 +16,7 @@
 
                         <div class="mb-3">
                             <label for="nama_menu" class="form-label">Nama Menu</label>
-                            <input type="text" class="form-control" id="nama_menu" name="nama_menu" value="{{ old('nama_menu', $munu->nama_menu) }}">
+                            <input type="text" class="form-control" id="nama_menu" name="nama_menu" value="{{ old('nama_menu', $menu->nama_menu) }}">
                             <div class="text-danger">
                                 @error('nama_menu')
                                 {{ $message }}

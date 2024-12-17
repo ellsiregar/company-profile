@@ -49,7 +49,7 @@ class MenuController extends Controller
             'nama_menu' => $request->nama_menu,
             'foto' => $foto,
         ]);
-        return redirect()->route('menu')->with('success', 'menu berhasil ditambahkan!');
+        return redirect()->route('admin.menu')->with('success', 'menu berhasil ditambahkan!');
     }
 
     /**
@@ -63,9 +63,9 @@ class MenuController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(menu $menu)
+    public function edit(menu $menu, $id)
     {
-        $menu = menu::find();
+        $menu = menu::find($id);
         if(!$menu) {
             return back();
         }
@@ -75,9 +75,9 @@ class MenuController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, menu $menu)
+    public function update(Request $request, menu $menu, $id)
     {
-        $menu = menu::find();
+        $menu = menu::find($id);
 
         $request->validate([
             'nama_menu' => 'required',
@@ -99,7 +99,7 @@ class MenuController extends Controller
             'foto' => $foto,
         ]);
 
-        return redirect()->route('menu')->with('success', "Data menu Berhasil di Edit");
+        return redirect()->route('admin.menu')->with('success', "Data menu Berhasil di Edit");
 
     }
 
