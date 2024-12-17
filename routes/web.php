@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Auth\AdminLoginController;
+use App\Http\Controllers\ContactController;
+use App\Http\Controllers\TeamController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -26,17 +28,17 @@ route::middleware(['admin'])->group(function () {
     route::put('/admin/menu/edit', [AdminController::class, 'update'])->name('admin.menu.update');
     route::get('/admin/menu/delete', [AdminController::class, 'delete'])->name('admin.menu.delete');
 
-    route::get('/admin/team', [AdminController::class, 'team'])->name('admin.team');
-    route::get('/admin/team/tambah', [AdminController::class, 'create'])->name('admin.team.create');
-    route::post('/admin/team/tambah', [AdminController::class, 'store'])->name('admin.team.store');
-    route::get('/admin/team/edit', [AdminController::class, 'edit'])->name('admin.team.edit');
-    route::put('/admin/team/edit', [AdminController::class, 'update'])->name('admin.team.update');
-    route::get('/admin/team/delete', [AdminController::class, 'delete'])->name('admin.team.delete');
+    route::get('/admin/team', [TeamController::class, 'team'])->name('admin.team');
+    route::get('/admin/team/tambah', [TeamController::class, 'create'])->name('admin.team.create');
+    route::post('/admin/team/tambah', [TeamController::class, 'store'])->name('admin.team.store');
+    route::get('/admin/team/edit', [TeamController::class, 'edit'])->name('admin.team.edit');
+    route::put('/admin/team/edit', [TeamController::class, 'update'])->name('admin.team.update');
+    route::get('/admin/team/delete', [TeamController::class, 'delete'])->name('admin.team.delete');
 
-    route::get('/admin/contact', [AdminController::class, 'contact'])->name('admin.contact');
-    route::get('/admin/contact/tambah', [AdminController::class, 'create'])->name('admin.contact.create');
-    route::post('/admin/contact/tambah', [AdminController::class, 'store'])->name('admin.contact.store');
-    route::get('/admin/contact/edit', [AdminController::class, 'edit'])->name('admin.contact.edit');
-    route::put('/admin/contact/edit', [AdminController::class, 'update'])->name('admin.contact.update');
-    route::get('/admin/contact/delete', [AdminController::class, 'delete'])->name('admin.contact.delete');
+    route::get('/admin/contact', [ContactController::class, 'contact'])->name('admin.contact');
+    route::get('/admin/contact/tambah', [ContactController::class, 'create'])->name('admin.contact.create');
+    route::post('/admin/contact/tambah', [ContactController::class, 'store'])->name('admin.contact.store');
+    route::get('/admin/contact/edit', [ContactController::class, 'edit'])->name('admin.contact.edit');
+    route::put('/admin/contact/edit', [ContactController::class, 'update'])->name('admin.contact.update');
+    route::get('/admin/contact/delete', [ContactController::class, 'delete'])->name('admin.contact.delete');
 });

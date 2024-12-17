@@ -16,13 +16,15 @@
             <div class="card">
                 <div class="card-body">
                     <div class="table-responsive">
-                        <a href="{{ route('user.team_tambah') }}" class="btn btn-primary btn-sm">Tambah</a>
+                        <a href="{{ route('admin.team.create') }}" class="btn btn-primary btn-sm">Tambah</a>
                         <table class="table" id="photo">
                             <thead>
                                 <tr>
                                     <th scope="col" class="ps-0">No</th>
                                     <th scope="col">Nama</th>
                                     <th scope="col">Foto</th>
+                                    <th scope="col">Action</th>
+
 
                                 </tr>
                             </thead>

@@ -15,7 +15,7 @@
             <h6 class="mb-4">Tambah Team</h6>
             <div class="card">
                 <div class="card-body">
-                    <form action="{{ route('user.photo_store') }}" method="POST" enctype="multipart/form-data">
+                    <form action="{{ route('admin.team.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="mb-3">
                             <label for="nama" class="form-label">Nama</label>
