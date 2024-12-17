@@ -22,7 +22,7 @@ class TeamController extends Controller
      */
     public function create()
     {
-        return view('admin.tambah_team', compact('team'));
+        return view('admin.tambah_team');
     }
 
     /**
