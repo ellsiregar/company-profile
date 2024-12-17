@@ -79,7 +79,7 @@ class TeamController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, $team,)
+    public function update(Request $request, $team)
     {
         $foto = team::where()->first();
         // $photo = photos::find($id);

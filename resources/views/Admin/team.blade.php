@@ -32,13 +32,13 @@
                                 @foreach ($teams as $team )
                                 <tr>
                                     <th scope="row">{{ $loop->iteration}}</th>
-                                    <td>{{ $photo->nama}}</td>
+                                    <td>{{ $team->nama}}</td>
                                     <td>
                                         <img src="{{ asset('storage/'. $team->foto_team) }}" alt="" height="30">
                                     </td>
                                     <td>
-                                        <a href="{{ route('user.edit_photo') }}" class="btn btn-warning btn-sm">Edit</a>
-                                        <a href="{{ route('user.delete_photo') }}" onclick="return confirm('Yakin ingin hapus data?')" class="btn btn-danger btn-sm">Hapus</a>
+                                        <a href="{{ route('admin.team.edit') }}" class="btn btn-warning btn-sm">Edit</a>
+                                        <a href="{{ route('admin.team.delete') }}" onclick="return confirm('Yakin ingin hapus data?')" class="btn btn-danger btn-sm">Hapus</a>
                                     </td>
                                 </tr>
                                 @endforeach
