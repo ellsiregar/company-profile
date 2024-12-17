@@ -3,8 +3,10 @@
 namespace App\Http\Controllers;
 
 use App\Models\admin;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
 class AdminController extends Controller
 {
@@ -18,7 +20,7 @@ class AdminController extends Controller
 
     public function logout(Request $request)
     {
-        Auth::guard('admin')->logout();
+        Auth::logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();
         return redirect()->route('admin.login');
@@ -26,9 +28,33 @@ class AdminController extends Controller
 
     public function profile()
     {
-        $profile = Auth::guard('admin')->user();
+        $profile = Auth::user();
         return view('admin.profile', compact('profile'));
     }
+
+    public function updateProfile(Request $request)
+    {
+        $id_admin = Auth::user()->id_admin;
+        $user = User::find($id_admin);
+
+        $request->validate([
+            'name' => 'required',
+            'username' => 'required',
+            'email' => 'required',
+            'password' => 'nullable|min:6',
+        ]);
+
+        $user->update([
+            'name' => $request->username,
+            'username' => $request->username,
+            'email' => $request->email,
+            'password' => $request->filled('password') ? Hash::make($request->password) : $user->password,
+
+        ]);
+
+        return redirect()->route('user.profile')->with('success', "Data anda Berhasil di update");
+    }
+
 
     /**
      * Show the form for creating a new resource.
