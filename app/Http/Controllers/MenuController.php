@@ -103,34 +103,24 @@ class MenuController extends Controller
 
     }
 
-    public function delete(menu $menu){
-        $menu = menu::find();
-        if ($menu->foto) {
-            $foto = $menu->foto;
 
-            if (Storage::disk('public')->delete($foto)) {
-                Storage::disk('public')->delete($foto);
-            }
-        }
-
-        $menu->delete();
-
-
-    if (!$menu) {
-        return redirect()->back()->with('error', 'Data menu tidak ditemukan.');
-    }
-
-    $menu->delete();
-
-    return redirect()->back()->with('success', 'Data menu berhasil dihapus.');
-
-    }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(menu $menu)
+    public function delete(menu $menu, $id)
     {
-        //
+
+        $menu = Menu::findOrFail($id);
+
+        // Hapus file foto
+        if ($menu->foto && Storage::exists('public/' . $menu->foto)) {
+            Storage::delete('public/' . $menu->foto);
+        }
+
+        $menu->delete();
+
+        return redirect()->route('admin.menu')->with('success', 'Menu berhasil dihapus!');
+
     }
 }
