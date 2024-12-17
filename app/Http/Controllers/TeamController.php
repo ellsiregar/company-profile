@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\team;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class TeamController extends Controller
 {
@@ -64,17 +65,61 @@ class TeamController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(team $team)
+    public function edit(string $id)
     {
-        //
+        $teams = team::all();
+        $foto = team::where($id)->first();
+
+        if(!$foto){
+            return back();
+        }
+        return view('admin.edit_photo', compact('foto'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, team $team)
+    public function update(Request $request, $team,)
     {
-        //
+        $foto = team::where()->first();
+        // $photo = photos::find($id);
+        $request->validate([
+            'nama' => 'required',
+            'foto' => 'nullable|image|mimes:jpeg,jpg,png,gif|max:2048',
+        ]);
+
+        $foto = $team->foto_team;
+        if($request->hasFile('foto_team')){
+            if ($foto){
+                Storage::disk('public')->delete($foto);
+            }
+            $uniqueField = uniqid() . '_' . $request->file('foto_team')->getClientOriginalName();
+
+            $request->file('foto_team')->storeAs('photo_pernikahan',  $uniqueField, 'public');
+
+            $foto = 'photo_pernikahan/' . $uniqueField;
+        }
+
+
+        $team->update([
+            'nama'=> $request,
+            'foto' => $foto,
+
+        ]);
+
+        return redirect()->route('admin.team')->with('success', 'Data photo Berhasil di Edit');
+    }
+
+
+    public function delete($team)
+    {
+        $team = team::find($team);
+
+
+         $team->delete();
+
+        return redirect()->back()->with('success', 'Data photo Berhasil diHapus');
+
     }
 
     /**
