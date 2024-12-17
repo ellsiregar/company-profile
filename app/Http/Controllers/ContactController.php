@@ -10,17 +10,17 @@ class ContactController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function contact()
     {
-        //
+        $contacts = contact::all();
+        return view('admin.contact', compact('contacts'));
     }
-
     /**
      * Show the form for creating a new resource.
      */
     public function create()
     {
-        //
+        return view('admin.tambah_contact', compact('contact'));
     }
 
     /**
@@ -28,7 +28,23 @@ class ContactController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'no_tlpn' => 'required',
+            'email' => 'required',
+            'lokasi' => 'required',
+
+        ]);
+
+        contact::create([
+
+            'no_tlpn' => $request->no_tlpn,
+            'email' => $request->email,
+            'lokasi' => $request->lokasi,
+        ]);
+
+
+
+        return redirect()->route('admin.contact')->with('success', 'Data Dudi Berhasil di Tambah.');
     }
 
     /**

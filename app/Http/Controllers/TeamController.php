@@ -10,9 +10,10 @@ class TeamController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function team()
     {
-        //
+        $teams = team::all();
+        return view('admin.team', compact('teams'));
     }
 
     /**
@@ -20,7 +21,7 @@ class TeamController extends Controller
      */
     public function create()
     {
-        //
+        return view('admin.tambah_team', compact('team'));
     }
 
     /**
@@ -28,7 +29,28 @@ class TeamController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'nama'=> 'required',
+            'foto'=> 'required|image|mimes:jpeg,jpg,png,gif|max:2048',
+
+        ]);
+
+        $foto = null;
+
+        if($request->hasFile('foto')){
+            $uniqueField = uniqid() . '_' . $request->file('foto')->getClientOriginalName();
+
+            $request->file('foto')->storeAs('foto_team', $uniqueField, 'public');
+
+            $foto = 'foto_team/' . $uniqueField;
+        }
+
+        team::create([
+            'nama'=> $request->nama,
+            'foto' => $foto,
+        ]);
+
+        return redirect()->route('admin.team')->with('success','Data photo Berhasil di Tambah');
     }
 
     /**
