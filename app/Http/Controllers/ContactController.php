@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Contact; // Pastikan model Contact ada
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ContactController extends Controller
 {
@@ -78,11 +79,19 @@ class ContactController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function delete($id)
+    public function delete(contact $contact, $id)
     {
-        $contact = Contact::findOrFail($id);
+
+        $contact = contact::findOrFail($id);
+
+        // Hapus file foto
+        if ($contact->foto && Storage::exists('public/' . $contact->foto)) {
+            Storage::delete('public/' . $contact->foto);
+        }
+
         $contact->delete();
 
-        return redirect()->route('admin.contact')->with('success', 'Data Contact Berhasil Dihapus.');
+        return redirect()->route('admin.contact')->with('success', 'contact berhasil dihapus!');
+
     }
 }

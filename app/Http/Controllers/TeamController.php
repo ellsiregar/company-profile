@@ -106,27 +106,24 @@ class TeamController extends Controller
     }
 
 
-    public function delete(team $team){
-        $team = team::find();
-        if ($team->foto) {
-            $foto = $team->foto;
+    public function delete(team $team, $id)
+    {
 
-            if (Storage::disk('public')->delete($foto)) {
-                Storage::disk('public')->delete($foto);
-            }
+        $team = team::findOrFail($id);
+
+        // Hapus file foto
+        if ($team->foto && Storage::exists('public/' . $team->foto)) {
+            Storage::delete('public/' . $team->foto);
         }
 
         $team->delete();
 
-    return redirect()->back()->with('success', 'Data team berhasil dihapus.');
+        return redirect()->route('admin.team')->with('success', 'team berhasil dihapus!');
 
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(team $team)
-    {
-        //
-    }
+
 }

@@ -17,7 +17,7 @@
                 <div class="card-body">
                     <div class="table-responsive">
                         <a href="{{ route('admin.team.create') }}" class="btn btn-primary btn-sm">Tambah</a>
-                        <table class="table" id="photo">
+                        <table class="table" id="team">
                             <thead>
                                 <tr>
                                     <th scope="col" class="ps-0">No</th>
