@@ -10,7 +10,7 @@ class menu extends Model
     protected $primaryKey = 'id_menu';
 
     protected $fillable = [
-        'nama_makanan',
+        'nama_menu',
         'foto',
 
     ];
