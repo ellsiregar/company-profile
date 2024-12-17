@@ -7,6 +7,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Storage;
 
 class AdminController extends Controller
 {
@@ -32,27 +33,39 @@ class AdminController extends Controller
         return view('admin.profile', compact('profile'));
     }
 
-    public function updateProfile(Request $request)
+    public function update(Request $request)
     {
-        $id_admin = Auth::user()->id_admin;
-        $user = User::find($id_admin);
+        $id = Auth::user()->id;
+        $admin = User::find($id);
 
         $request->validate([
-            'name' => 'required',
-            'username' => 'required',
-            'email' => 'required',
+            'username' => 'required|unique:users,username,' .$id .',id',
             'password' => 'nullable|min:6',
+            'nama_admin' => 'required',
+            'foto' => 'nullable|image|mimes:jpeg,jpg,png,gif|max:2048',
         ]);
 
-        $user->update([
-            'name' => $request->username,
-            'username' => $request->username,
-            'email' => $request->email,
-            'password' => $request->filled('password') ? Hash::make($request->password) : $user->password,
+        $foto = $admin->foto;
 
+        if ($request->hasFile('foto')) {
+            if ($foto) {
+                Storage::disk('public')->delete($foto);
+            }
+            $uniqueField = uniqid() . '_' . $request->file('foto')->getClientOriginalName();
+
+            $request->file('foto')->storeAs('foto_admin', $uniqueField, 'public');
+            $foto = 'foto_admin/'. $uniqueField;
+        }
+
+        $admin->update([
+            'username'=> $request->username,
+            'password'=> $request->filled('password') ? Hash::make($request->password) : $admin->password,
+            'nama_admin'=> $request->nama_admin,
+            'foto' => $foto,
         ]);
 
-        return redirect()->route('user.profile')->with('success', "Data anda Berhasil di update");
+        return redirect()->route('admin.profile')->with('success', "Data anda Berhasil di update");
+
     }
 
 
