@@ -1,4 +1,4 @@
-@extends('backend.admin.layouts.app')
+@extends('Admin.layouts.app')
 
 @section('title', 'Tambah Menu')
 
