@@ -13,8 +13,9 @@ return new class extends Migration
     {
         Schema::create('contacts', function (Blueprint $table) {
             $table->integer('id_contact')->primary()->autoIncrement();
-            $table->string('no_tlp',15)->unique();
-            $table->string('alamat_dudi', 50);
+            $table->string('no_tlpn',15);
+            $table->string('email',100)->unique();
+            $table->string('lokasi', 100);
             $table->timestamps();
         });
     }

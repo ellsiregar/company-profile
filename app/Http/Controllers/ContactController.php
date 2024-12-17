@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\contact;
+use App\Models\Contact; // Pastikan model Contact ada
 use Illuminate\Http\Request;
 
 class ContactController extends Controller
@@ -12,15 +12,16 @@ class ContactController extends Controller
      */
     public function contact()
     {
-        $contacts = contact::all();
+        $contacts = Contact::all();
         return view('admin.contact', compact('contacts'));
     }
+
     /**
      * Show the form for creating a new resource.
      */
     public function create()
     {
-        return view('admin.tambah_contact', compact('contact'));
+        return view('admin.tambah_contact');
     }
 
     /**
@@ -30,52 +31,58 @@ class ContactController extends Controller
     {
         $request->validate([
             'no_tlpn' => 'required',
-            'email' => 'required',
+            'email' => 'required|email',
             'lokasi' => 'required',
-
         ]);
 
-        contact::create([
-
+        Contact::create([
             'no_tlpn' => $request->no_tlpn,
             'email' => $request->email,
             'lokasi' => $request->lokasi,
         ]);
 
-
-
-        return redirect()->route('admin.contact')->with('success', 'Data Dudi Berhasil di Tambah.');
-    }
-
-    /**
-     * Display the specified resource.
-     */
-    public function show(contact $contact)
-    {
-        //
+        return redirect()->route('admin.contact')->with('success', 'Data Contact Berhasil Ditambahkan.');
     }
 
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(contact $contact)
+    public function edit($id)
     {
-        //
+        $contact = Contact::findOrFail($id);
+        return view('admin.edit_contact', compact('contact'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, contact $contact)
+    public function update(Request $request, $id)
     {
-        //
+        $request->validate([
+            'no_tlpn' => 'required',
+            'email' => 'required|email',
+            'lokasi' => 'required',
+        ]);
+
+        $contact = Contact::findOrFail($id);
+
+        $contact->update([
+            'no_tlpn' => $request->no_tlpn,
+            'email' => $request->email,
+            'lokasi' => $request->lokasi,
+        ]);
+
+        return redirect()->route('admin.contact')->with('success', 'Data Contact Berhasil Diperbarui.');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(contact $contact)
+    public function delete($id)
     {
-        //
+        $contact = Contact::findOrFail($id);
+        $contact->delete();
+
+        return redirect()->route('admin.contact')->with('success', 'Data Contact Berhasil Dihapus.');
     }
 }

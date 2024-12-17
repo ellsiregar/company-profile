@@ -34,11 +34,11 @@
                                     <th scope="row">{{ $loop->iteration}}</th>
                                     <td>{{ $team->nama}}</td>
                                     <td>
-                                        <img src="{{ asset('storage/'. $team->foto_team) }}" alt="" height="30">
+                                        <img src="{{ asset('storage/'. $team->foto) }}" alt="" height="30">
                                     </td>
                                     <td>
-                                        <a href="{{ route('admin.team.edit') }}" class="btn btn-warning btn-sm">Edit</a>
-                                        <a href="{{ route('admin.team.delete') }}" onclick="return confirm('Yakin ingin hapus data?')" class="btn btn-danger btn-sm">Hapus</a>
+                                        <a href="{{ route('admin.team.edit', $team->id_team) }}" class="btn btn-warning btn-sm">Edit</a>
+                                        <a href="{{ route('admin.team.delete', $team->id_team) }}" onclick="return confirm('Yakin ingin hapus data?')" class="btn btn-danger btn-sm">Hapus</a>
                                     </td>
                                 </tr>
                                 @endforeach
