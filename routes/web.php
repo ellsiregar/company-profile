@@ -4,6 +4,7 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Auth\AdminLoginController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\TeamController;
+use App\Http\Controllers\MenuController;
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
@@ -21,12 +22,12 @@ route::middleware(['admin'])->group(function () {
     route::put('/admin/profile/update', [AdminController::class, 'update'])->name('admin.profile.update');
     route::get('/admin/logout', [AdminController::class, 'logout'])->name('admin.logout');
 
-    route::get('/admin/menu', [AdminController::class, 'menu'])->name('admin.menu');
-    route::get('/admin/menu/tambah', [AdminController::class, 'create'])->name('admin.menu.create');
-    route::post('/admin/menu/tambah', [AdminController::class, 'store'])->name('admin.menu.store');
-    route::get('/admin/menu/edit', [AdminController::class, 'edit'])->name('admin.menu.edit');
-    route::put('/admin/menu/edit', [AdminController::class, 'update'])->name('admin.menu.update');
-    route::get('/admin/menu/delete', [AdminController::class, 'delete'])->name('admin.menu.delete');
+    route::get('/admin/menu', [MenuController::class, 'menu'])->name('admin.menu');
+    route::get('/admin/menu/tambah', [MenuController::class, 'create'])->name('admin.menu.create');
+    route::post('/admin/menu/tambah', [MenuController::class, 'store'])->name('admin.menu.store');
+    route::get('/admin/menu/edit', [MenuController::class, 'edit'])->name('admin.menu.edit');
+    route::put('/admin/menu/edit', [MenuController::class, 'update'])->name('admin.menu.update');
+    route::get('/admin/menu/delete', [MenuController::class, 'delete'])->name('admin.menu.delete');
 
     route::get('/admin/team', [TeamController::class, 'team'])->name('admin.team');
     route::get('/admin/team/tambah', [TeamController::class, 'create'])->name('admin.team.create');

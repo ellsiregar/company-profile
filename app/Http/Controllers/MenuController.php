@@ -4,15 +4,17 @@ namespace App\Http\Controllers;
 
 use App\Models\menu;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class MenuController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function menu()
     {
-        //
+        $menus =menu::all();
+        return view('Admin.menu', compact('menus'));
     }
 
     /**
@@ -20,7 +22,7 @@ class MenuController extends Controller
      */
     public function create()
     {
-        //
+        return view('Admin.menu_tambah');
     }
 
     /**
@@ -28,7 +30,26 @@ class MenuController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'nama_menu' => 'required',
+            'foto' => 'nullable|image|mimes:jpeg,jpg,png,gif|max:2048',
+        ]);
+
+        $foto = null;
+
+        if ($request->hasFile('foto')) {
+            $uniqueField = uniqid() . '-' . $request->file('foto')->getClientOriginalName();
+
+            $request->file('foto')->storeAs('foto_menu', $uniqueField, 'public');
+
+            $foto = 'foto_menu/' . $uniqueField;
+        }
+
+        menu::create([
+            'nama_menu' => $request->nama_menu,
+            'foto' => $foto,
+        ]);
+        return redirect()->route('menu')->with('success', 'menu berhasil ditambahkan!');
     }
 
     /**
@@ -44,7 +65,11 @@ class MenuController extends Controller
      */
     public function edit(menu $menu)
     {
-        //
+        $menu = menu::find();
+        if(!$menu) {
+            return back();
+        }
+        return view('Admin.menu_edit', compact('menu'));
     }
 
     /**
@@ -52,7 +77,53 @@ class MenuController extends Controller
      */
     public function update(Request $request, menu $menu)
     {
-        //
+        $menu = menu::find();
+
+        $request->validate([
+            'nama_menu' => 'required',
+            'foto' => 'nullable|image|mimes:jpeg,jpg,png,gif|max:2048',
+        ]);
+        $foto = $menu->foto;
+
+        if ($request->hasFile('foto')) {
+            if ($foto) {
+                Storage::disk('public')->delete($foto);
+            }
+            $uniqueField = uniqid() . '_' . $request->file('foto')->getClientOriginalName();
+
+            $request->file('foto')->storeAs('foto_menu', $uniqueField, 'public');
+            $foto = 'foto_menu/'. $uniqueField;
+        }
+        $menu->update([
+            'nama_menu' => $request->nama_menu,
+            'foto' => $foto,
+        ]);
+
+        return redirect()->route('menu')->with('success', "Data menu Berhasil di Edit");
+
+    }
+
+    public function delete(menu $menu){
+        $menu = menu::find();
+        if ($menu->foto) {
+            $foto = $menu->foto;
+
+            if (Storage::disk('public')->delete($foto)) {
+                Storage::disk('public')->delete($foto);
+            }
+        }
+
+        $menu->delete();
+
+
+    if (!$menu) {
+        return redirect()->back()->with('error', 'Data menu tidak ditemukan.');
+    }
+
+    $menu->delete();
+
+    return redirect()->back()->with('success', 'Data menu berhasil dihapus.');
+
     }
 
     /**
