@@ -36,6 +36,15 @@
                             </div>
                         </div>
                         <div class="mb-3">
+                            <label for="deskripsi" class="form-label">deskripsi</label>
+                            <input type="text" class="form-control" id="deskripsi" name="deskripsi">
+                            <div class="text-danger">
+                                @error('deskripsi')
+                                {{ $message }}
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="mb-3">
                             <label for="foto" class="form-label">Foto</label>
                             <input type="file" class="form-control" id="foto" name="foto">
                             <div class="text-danger">

@@ -33,7 +33,6 @@
                                 @enderror
                             </div>
                         </div>
-
                         <div class="mb-3">
                             <label for="deskripsi" class="form-label">deskripsi</label>
                             <input type="text" class="form-control" id="deskripsi" name="deskripsi" value="{{ old('deskripsi', $company->deskripsi) }}">

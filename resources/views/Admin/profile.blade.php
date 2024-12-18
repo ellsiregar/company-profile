@@ -46,6 +46,7 @@
                             {{ $message }}
                             @enderror
                         </div>
+                        
                         <div class="mb-3">
                             <label for="foto" class="form-label">foto</label>
                             <input type="file" class="form-control" id="foto" name="foto">

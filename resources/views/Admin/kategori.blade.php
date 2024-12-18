@@ -26,7 +26,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ($kategoris as $kategori )
+                                @foreach ( $kategoris as $kategori )
                                 <tr>
                                     <th scope="row">{{ $loop->iteration}}</th>
                                     <td>{{ $kategori->nama_kategori}}</td>

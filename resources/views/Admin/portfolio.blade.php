@@ -21,6 +21,7 @@
                                 <th scope="col">No</th>
                                 <th scope="col">Nama Kategori</th>
                                 <th scope="col">Nama Portfolio</th>
+                                <th scope="col">Deskripsi</th>
                                 <th scope="col">Foto</th>
                                 <th scope="col" class="text-center">Actions</th>
                             </tr>
@@ -31,6 +32,7 @@
                                 <th scope="row">{{ $loop->iteration }}</th>
                                 <td>{{$portfolio->kategori->nama_kategori}}</td>
                                 <td>{{$portfolio->nama_portfolio}}</td>
+                                <td>{{$portfolio->deskripsi}}</td>
                                 <td>
                                     <img src="{{ asset('storage/' . $portfolio->foto) }}" alt="" height="30">
                                 </td>

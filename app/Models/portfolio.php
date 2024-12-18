@@ -12,6 +12,7 @@ class portfolio extends Model
     protected $fillable = [
         'id_kategori',
         'nama_portfolio',
+        'deskripsi',
         'foto',
     ];
 
