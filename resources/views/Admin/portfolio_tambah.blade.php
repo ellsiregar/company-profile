@@ -7,7 +7,7 @@
 <div class="row g-4">
     <div class="col-12">
         <div class="bg-light rounded h-100 p-4">
-            <h6 class="mb-4">Tambah Menu</h6>
+            <h6 class="mb-4">Tambah Portfolio</h6>
             <div class="card">
                 <div class="card-body">
                     <form action="{{ route('admin.portfolio.store') }}" method="POST" enctype="multipart/form-data">
