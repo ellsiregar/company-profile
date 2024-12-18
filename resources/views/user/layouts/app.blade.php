@@ -187,8 +187,8 @@
 
       <!-- Section Title -->
       <div class="container section-title" data-aos="fade-up">
-        <h2>Portfolio</h2>
-        <p>Check our Portfolio</p>
+        <h2>Menu</h2>
+        <p>Check our Menu</p>
       </div><!-- End Section Title -->
 
       <div class="container">
