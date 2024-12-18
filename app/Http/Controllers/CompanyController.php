@@ -18,9 +18,10 @@ class CompanyController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function company()
     {
-        //
+        $companys = company::all();
+        return view('Admin.company', compact('companys'));
     }
 
     /**

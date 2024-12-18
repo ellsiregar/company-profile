@@ -72,7 +72,24 @@
                                 </span>
                                 <span class="hide-menu">Contact</span>
                             </a>
+                            <li class="sidebar-item">
+                                <a class="sidebar-link" href="{{ route('admin.company') }}" aria-expanded="false">
+                                    <span>
+                                        <iconify-icon icon="solar:bookmark-square-minimalistic-bold-duotone"
+                                            class="fs-6"></iconify-icon>
+                                    </span>
+                                    <span class="hide-menu">Company</span>
+                                </a>
                         </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link" href="{{ route('admin.about') }}" aria-expanded="false">
+                                <span>
+                                    <iconify-icon icon="solar:bookmark-square-minimalistic-bold-duotone"
+                                        class="fs-6"></iconify-icon>
+                                </span>
+                                <span class="hide-menu">About</span>
+                            </a>
+                    </li>
                 </nav>
                 <!-- End Sidebar navigation -->
             </div>
