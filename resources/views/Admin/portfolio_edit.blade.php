@@ -14,6 +14,20 @@
                         @csrf
                         @method('PUT')
                         <div class="mb-3">
+                            <label for="id_kategori" class="form-label">Nama Kategori</label>
+                            <select name="id_kategori" id="id_kategori" class="form-select">
+                                <option value="">pilih</option>
+                                @foreach($kategoris as $kategori)
+                                <option value="{{ $kategori->id_kategori }}">{{$kategori->nama_kategori}}</option>
+                                @endforeach
+                            </select>
+                            <div class="text-danger">
+                                @error('id_kategori')
+                                {{$message}}
+                                @enderror
+                            </div>
+                        </div>
+                        <div class="mb-3">
                             <label for="nama_portfolio" class="form-label">Nama Portfolio</label>
                             <input type="text" class="form-control" id="nama_portfolio" name="nama_portfolio" value="{{ old('nama_portfolio', $portfolio->nama_portfolio) }}">
                             <div class="text-danger">

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\kategori;
 use App\Models\portfolio;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
@@ -22,7 +23,8 @@ class PortfolioController extends Controller
      */
     public function create()
     {
-        return view('Admin.portfolio_tambah');
+        $kategoris = kategori::all();
+        return view('Admin.portfolio_tambah', compact('kategoris'));
     }
 
     /**
@@ -31,6 +33,7 @@ class PortfolioController extends Controller
     public function store(Request $request)
     {
         $request->validate([
+            'id_kategori' => 'required',
             'nama_portfolio' => 'required',
             'foto' => 'nullable|image|mimes:jpeg,jpg,png,gif|max:2048',
         ]);
@@ -46,6 +49,7 @@ class PortfolioController extends Controller
         }
 
         portfolio::create([
+            'id_kategori' => $request->id_kategori,
             'nama_portfolio' => $request->nama_portfolio,
             'foto' => $foto,
         ]);

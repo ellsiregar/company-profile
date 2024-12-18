@@ -12,4 +12,9 @@ class kategori extends Model
     protected $fillable = [
         'nama_kategori',
     ];
+
+    public function portfolio()
+    {
+    return $this->hasMany(portfolio::class, 'id_ketegori', 'id_kategori');
+    }
 }

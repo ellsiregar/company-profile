@@ -10,7 +10,13 @@ class portfolio extends Model
     protected $primaryKey = 'id_portfolio';
 
     protected $fillable = [
+        'id_kategori',
         'nama_portfolio',
         'foto',
     ];
+
+    public function kategori()
+    {
+    return $this->belongsTo(kategori::class, 'id_kategori', 'id_kategori');
+    }
 }
