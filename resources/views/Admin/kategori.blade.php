@@ -23,8 +23,6 @@
                                     <th scope="col" class="ps-0">No</th>
                                     <th scope="col">Nama Kategori</th>
                                     <th scope="col">Action</th>
-
-
                                 </tr>
                             </thead>
                             <tbody>
