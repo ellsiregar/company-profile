@@ -29,10 +29,10 @@
                                 @foreach ($kategoris as $kategori )
                                 <tr>
                                     <th scope="row">{{ $loop->iteration}}</th>
-                                    <td>{{ $ketegori->nama_kategori}}</td>
+                                    <td>{{ $kategori->nama_kategori}}</td>
                                     <td>
-                                        <a href="{{ route('admin.ketegori.edit', $ketegori->id_ketegori) }}" class="btn btn-warning btn-sm">Edit</a>
-                                        <a href="{{ route('admin.ketegori.delete', $ketegori->id_ketegori) }}" onclick="return confirm('Yakin ingin hapus data?')" class="btn btn-danger btn-sm">Hapus</a>
+                                        <a href="{{ route('admin.kategori.edit', $kategori->id_kategori) }}" class="btn btn-warning btn-sm">Edit</a>
+                                        <a href="{{ route('admin.kategori.delete', $kategori->id_kategori) }}" onclick="return confirm('Yakin ingin hapus data?')" class="btn btn-danger btn-sm">Hapus</a>
                                     </td>
                                 </tr>
                                 @endforeach
@@ -47,7 +47,7 @@
 
 <script>
     $(document).ready(function() {
-        $('#ketegori').DataTable();
+        $('#kategori').DataTable();
     });
 </script>
 

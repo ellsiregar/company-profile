@@ -36,7 +36,7 @@ class KategoriController extends Controller
         ]);
 
         kategori::create([
-            'nama'=> $request->nama,
+            'nama_kategori'=> $request->nama_kategori,
         ]);
 
         return redirect()->route('admin.kategori')->with('success','Data photo Berhasil di Tambah');
@@ -70,10 +70,10 @@ class KategoriController extends Controller
         $kategori = kategori::find($id);
 
         $request->validate([
-            'nama' => 'required',
+            'nama_kategori' => 'required',
         ]);
         $kategori->update([
-            'nama' => $request->nama,
+            'nama_kategori' => $request->nama_kategori,
         ]);
 
         return redirect()->route('admin.kategori')->with('success', "Data kategori Berhasil di Edit");
@@ -85,12 +85,6 @@ class KategoriController extends Controller
     {
 
         $kategori = kategori::findOrFail($id);
-
-        // Hapus file foto
-        if ($kategori->foto && Storage::exists('public/' . $kategori->foto)) {
-            Storage::delete('public/' . $kategori->foto);
-        }
-
         $kategori->delete();
 
         return redirect()->route('admin.kategori')->with('success', 'kategori berhasil dihapus!');
