@@ -43,13 +43,6 @@
     <header id="header" class="header d-flex align-items-center fixed-top">
         <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
 
-            <a href="index.html" class="logo d-flex align-items-center me-auto me-lg-0">
-                <!-- Uncomment the line below if you also wish to use an image logo -->
-                <!-- <img src="assets/img/logo.png" alt=""> -->
-                <h1 class="sitename">GP</h1>
-                <span>.</span>
-            </a>
-
             <nav id="navmenu" class="navmenu">
                 <ul>
                     <li><a href="#hero" class="active">Home<br></a></li>
@@ -74,44 +67,20 @@
 
                 <div class="row justify-content-center text-center" data-aos="fade-up" data-aos-delay="100">
                     <div class="col-xl-6 col-lg-8">
-                        <h2>welcome lisfera coffe</h2>
-                        <p>terimakasih sudah mengunjungi website kami</p>
+                        <h2>{{$company->judul}}</h2>
+                        <p>{{$company->deskripsi}}</p>
                     </div>
                 </div>
 
+                @foreach ($companys as $company )
                 <div class="row gy-4 mt-5 justify-content-center" data-aos="fade-up" data-aos-delay="200">
                     <div class="col-xl-2 col-md-4" data-aos="fade-up" data-aos-delay="300">
                         <div class="icon-box">
                             <i class="bi bi-binoculars"></i>
-                            <h3><a href="">Lorem Ipsum</a></h3>
+                            <h3><a href="{{ $company->fasilitas}}"></a></h3>
                         </div>
                     </div>
-                    <div class="col-xl-2 col-md-4" data-aos="fade-up" data-aos-delay="400">
-                        <div class="icon-box">
-                            <i class="bi bi-bullseye"></i>
-                            <h3><a href="">Dolor Sitema</a></h3>
-                        </div>
-                    </div>
-                    <div class="col-xl-2 col-md-4" data-aos="fade-up" data-aos-delay="500">
-                        <div class="icon-box">
-                            <i class="bi bi-fullscreen-exit"></i>
-                            <h3><a href="">Sedare Perspiciatis</a></h3>
-                        </div>
-                    </div>
-                    <div class="col-xl-2 col-md-4" data-aos="fade-up" data-aos-delay="600">
-                        <div class="icon-box">
-                            <i class="bi bi-card-list"></i>
-                            <h3><a href="">Magni Dolores</a></h3>
-                        </div>
-                    </div>
-                    <div class="col-xl-2 col-md-4" data-aos="fade-up" data-aos-delay="700">
-                        <div class="icon-box">
-                            <i class="bi bi-gem"></i>
-                            <h3><a href="">Nemos Enimade</a></h3>
-                        </div>
-                    </div>
-                </div>
-
+                @endforeach
             </div>
 
         </section><!-- /Hero Section -->
