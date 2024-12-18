@@ -48,6 +48,15 @@
                             <span class="hide-menu">UI COMPONENTS</span>
                         </li>
                         <li class="sidebar-item">
+                            <a class="sidebar-link" href="{{ route('admin.kategori') }}" aria-expanded="false">
+                                <span>
+                                    <iconify-icon icon="solar:bookmark-square-minimalistic-bold-duotone"
+                                        class="fs-6"></iconify-icon>
+                                </span>
+                                <span class="hide-menu">Kategori</span>
+                            </a>
+                    </li>
+                        <li class="sidebar-item">
                             <a class="sidebar-link" href="{{ route('admin.portfolio') }}" aria-expanded="false">
                                 <span>
                                     <iconify-icon icon="solar:layers-minimalistic-bold-duotone"
@@ -90,15 +99,7 @@
                                 <span class="hide-menu">About</span>
                             </a>
                     </li>
-                    <li class="sidebar-item">
-                        <a class="sidebar-link" href="{{ route('admin.kategori') }}" aria-expanded="false">
-                            <span>
-                                <iconify-icon icon="solar:bookmark-square-minimalistic-bold-duotone"
-                                    class="fs-6"></iconify-icon>
-                            </span>
-                            <span class="hide-menu">Kategori</span>
-                        </a>
-                </li>
+
                 </nav>
                 <!-- End Sidebar navigation -->
             </div>
