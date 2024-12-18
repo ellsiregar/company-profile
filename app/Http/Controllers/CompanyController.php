@@ -10,14 +10,6 @@ class CompanyController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
-    {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     */
     public function company()
     {
         $companys = company::all();
@@ -25,11 +17,33 @@ class CompanyController extends Controller
     }
 
     /**
+     * Show the form for creating a new resource.
+     */
+    public function create()
+    {
+       return view('Admin.company_tambah');
+    }
+
+    /**
      * Store a newly created resource in storage.
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'nama_perusahaan' => 'required',
+            'judul' => 'required',
+            'deskripsi' => 'required',
+            'fasilitas' => 'required',
+        ]);
+
+        company::create([
+            'nama_perusahaan' => $request->nama_perusahaan,
+            'judul' => $request->judul,
+            'deskripsi' => $request->deskripsi,
+            'fasilitas' => $request->fasilitas,
+        ]);
+
+        return redirect()->route('admin.company')->with('success', 'Data Company Berhasil Ditambahkan.');
     }
 
     /**
@@ -43,24 +57,48 @@ class CompanyController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(company $company)
+    public function edit(company $company ,$id)
     {
-        //
+        $company = company::findOrFail($id);
+        return view('Admin.company_edit', compact('company'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, company $company)
+    public function update(Request $request, company $company , $id)
     {
-        //
+
+        $request->validate([
+            'nama_perusahaan' => 'required',
+            'judul' => 'required',
+            'deskripsi' => 'required',
+            'fasilitas' => 'required',
+        ]);
+
+        $company = company::findOrFail($id);
+
+        $company->update([
+            'nama_perusahaan' => $request->nama_perusahaan,
+            'judul' => $request->judul,
+            'deskripsi' => $request->deskripsi,
+            'fasilitas' => $request->fasilitas,
+        ]);
+
+        return redirect()->route('admin.company')->with('success', 'Data Company Berhasil Diperbarui.');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(company $company)
+    public function delete(company $company, $id)
     {
-        //
+
+        $company = company::findOrFail($id);
+
+        $company->delete();
+
+        return redirect()->route('admin.company')->with('success', 'company berhasil dihapus!');
+
     }
 }
