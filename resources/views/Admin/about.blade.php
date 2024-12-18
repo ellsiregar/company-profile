@@ -17,11 +17,10 @@
                 <div class="card-body">
                     <div class="table-responsive">
                         <a href="{{ route('admin.about.create') }}" class="btn btn-primary btn-sm">Tambah</a>
-                        <table class="table" id="team">
+                        <table class="table" id="about">
                             <thead>
                                 <tr>
                                     <th scope="col" class="ps-0">No</th>
-                                    <th scope="col">Judul</th>
                                     <th scope="col">Deskripsi</th>
                                     <th scope="col">Foto</th>
                                     <th scope="col">Action</th>
@@ -33,14 +32,13 @@
                                 @foreach ($abouts as $about )
                                 <tr>
                                     <th scope="row">{{ $loop->iteration}}</th>
-                                    <td>{{ $about->judul}}</td>
                                     <td>{{ $about->deskripsi}}</td>
                                     <td>
                                         <img src="{{ asset('storage/'. $about->foto) }}" alt="" height="30">
                                     </td>
                                     <td>
-                                        <a href="{{ route('admin.about.edit', $about->id_about) }}" class="btn btn-warning btn-sm">Edit</a>
-                                        <a href="{{ route('admin.about.delete', $about->id_about) }}" onclick="return confirm('Yakin ingin hapus data?')" class="btn btn-danger btn-sm">Hapus</a>
+                                        <a href="{{ route('admin.about.edit', $about->id) }}" class="btn btn-warning btn-sm">Edit</a>
+                                        <a href="{{ route('admin.about.delete', $about->id) }}" onclick="return confirm('Yakin ingin hapus data?')" class="btn btn-danger btn-sm">Hapus</a>
                                     </td>
                                 </tr>
                                 @endforeach
@@ -55,7 +53,7 @@
 
 <script>
     $(document).ready(function() {
-        $('#team').DataTable();
+        $('#about').DataTable();
     });
 </script>
 

@@ -1,6 +1,6 @@
 @extends('Admin.layouts.app')
 
-@section('title', 'menu')
+@section('title', 'Portfolio')
 
 @section('content')
 
@@ -13,28 +13,28 @@
         <div class="card">
             <div class="card-body">
                 <h5 class="card-title">Lisfera Cofffe</h5>
-                <a href="{{route('admin.menu.create')}}" class="btn btn-primary btn-sm">Tambah</a>
+                <a href="{{route('admin.portfolio.create')}}" class="btn btn-primary btn-sm">Tambah</a>
                 <div class="table-responsive">
-                    <table class="table text-nowrap align-middle mb-0" id="menu">
+                    <table class="table text-nowrap align-middle mb-0" id="portfolio">
                         <thead>
                             <tr class="border-2 border-bottom border-primary border-0">
                                 <th scope="col">No</th>
-                                <th scope="col">Nama Menu</th>
+                                <th scope="col">Nama Portfolio</th>
                                 <th scope="col">Foto</th>
                                 <th scope="col" class="text-center">Actions</th>
                             </tr>
                         </thead>
                         <tbody class="table-group-divider">
-                            @foreach ($menus as $menu)
+                            @foreach ($portfolios as $portfolio)
                             <tr>
                                 <th scope="row">{{ $loop->iteration }}</th>
-                                <td>{{$menu->nama_menu}}</td>
+                                <td>{{$portfolio->nama_portfolio}}</td>
                                 <td>
-                                    <img src="{{ asset('storage/' . $menu->foto) }}" alt="" height="30">
+                                    <img src="{{ asset('storage/' . $portfolio->foto) }}" alt="" height="30">
                                 </td>
                                 <td class="text-center">
-                                    <a href="{{route('admin.menu.edit', $menu->id_menu)}}" class="btn btn-warning btn-sm">Edit</a>
-                                    <a href="{{route('admin.menu.delete', $menu->id_menu)}}" onclick="return confirm('Yakin ingin hapus data?')" class="btn btn-danger btn-sm">Delete</a>
+                                    <a href="{{route('admin.portfolio.edit', $portfolio->id_portfolio)}}" class="btn btn-warning btn-sm">Edit</a>
+                                    <a href="{{route('admin.portfolio.delete', $portfolio->id_portfolio)}}" onclick="return confirm('Yakin ingin hapus data?')" class="btn btn-danger btn-sm">Delete</a>
                                 </td>
                             </tr>
                             @endforeach
@@ -47,7 +47,7 @@
 
 <script>
     $(document).ready(function() {
-        $('#menu').DataTable();
+        $('#portfolio').DataTable();
     });
 </script>
 

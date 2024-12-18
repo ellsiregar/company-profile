@@ -15,20 +15,11 @@
             <h6 class="mb-4">Edit About</h6>
             <div class="card">
                 <div class="card-body">
-                    <form action="{{ route('admin.about.update', $about->id_about) }}" method="POST" enctype="multipart/form-data">
+                    <form action="{{ route('admin.about.update', $about->id) }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         @method('PUT')
 
                         <!-- Nama Input -->
-                        <div class="mb-3">
-                            <label for="judul" class="form-label">Judul</label>
-                            <input type="text" class="form-control" id="judul" name="judul" value="{{ old('judul', $about->judul) }}" required>
-                            <div class="text-danger">
-                                @error('judul')
-                                    {{ $message }}
-                                @enderror
-                            </div>
-                        </div>
                         <div class="mb-3">
                             <label for="deskripsi" class="form-label">Deskripsi</label>
                             <input type="text" class="form-control" id="deskripsi" name="deskripsi" value="{{ old('deskripsi', $about->deskripsi) }}" required>
@@ -50,11 +41,11 @@
                         </div>
 
                         <!-- Display existing photo (if available) -->
-                        @if($team->foto)
+                        @if($about->foto)
                             <div class="mb-3">
                                 <label class="form-label">Foto Lama</label>
                                 <div>
-                                    <img src="{{ asset('storage/' . $team->foto) }}" alt="Foto Lama" width="100">
+                                    <img src="{{ asset('storage/' . $about->foto) }}" alt="Foto Lama" width="100">
                                 </div>
                             </div>
                         @endif

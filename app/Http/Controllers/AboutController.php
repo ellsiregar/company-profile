@@ -31,7 +31,6 @@ class AboutController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            'judul'=>'required',
             'deskripsi'=> 'required',
             'foto'=> 'required|image|mimes:jpeg,jpg,png,gif|max:2048',
 
@@ -48,7 +47,6 @@ class AboutController extends Controller
         }
 
         about::create([
-            'judul'=> $request->judul,
             'deskripsi'=> $request->deskripsi,
             'foto' => $foto,
         ]);
@@ -84,7 +82,6 @@ class AboutController extends Controller
         $about = about::find($id);
 
         $request->validate([
-            'judul' => 'required',
             'deskripsi' => 'required',
             'foto' => 'nullable|image|mimes:jpeg,jpg,png,gif|max:2048',
         ]);
@@ -100,7 +97,6 @@ class AboutController extends Controller
             $foto = 'foto_about/'. $uniqueField;
         }
         $about->update([
-            'judul' => $request->judul,
             'deskripsi' => $request->deskripsi,
             'foto' => $foto,
         ]);

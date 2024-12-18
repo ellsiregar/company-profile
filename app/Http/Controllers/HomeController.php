@@ -2,8 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\about;
 use App\Models\contact;
-use App\Models\menu;
+use App\Models\portfolio;
 use App\Models\team;
 use Illuminate\Http\Request;
 
@@ -13,7 +14,8 @@ class HomeController extends Controller
     {
         $contact = contact::first();
         $teams = team::all();
-        $menus = menu::all();
-        return view('user.home', compact('contact', 'teams','menus'));
+        $portfolios = portfolio::all();
+        $about = about::first();
+        return view('user.home', compact('contact', 'teams','portfolios','about'));
     }
 }

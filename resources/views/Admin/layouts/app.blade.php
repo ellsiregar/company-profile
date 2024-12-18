@@ -48,12 +48,12 @@
                             <span class="hide-menu">UI COMPONENTS</span>
                         </li>
                         <li class="sidebar-item">
-                            <a class="sidebar-link" href="{{ route('admin.menu') }}" aria-expanded="false">
+                            <a class="sidebar-link" href="{{ route('admin.portfolio') }}" aria-expanded="false">
                                 <span>
                                     <iconify-icon icon="solar:layers-minimalistic-bold-duotone"
                                         class="fs-6"></iconify-icon>
                                 </span>
-                                <span class="hide-menu">Menu</span>
+                                <span class="hide-menu">Portfolio</span>
                             </a>
                         </li>
                         <li class="sidebar-item">

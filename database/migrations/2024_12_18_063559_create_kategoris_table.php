@@ -11,10 +11,9 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('abouts', function (Blueprint $table) {
-            $table->id();
-            $table->text('deskripsi', 255);
-            $table->string('foto')->nullable();
+        Schema::create('kategoris', function (Blueprint $table) {
+            $table->integer('id_kategori')->primary()->autoIncrement();
+            $table->string('nama_kategori', 50);
             $table->timestamps();
         });
     }
@@ -24,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('abouts');
+        Schema::dropIfExists('kategoris');
     }
 };

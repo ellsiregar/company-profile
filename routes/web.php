@@ -6,8 +6,10 @@ use App\Http\Controllers\Auth\AdminLoginController;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\ContactController;
 use App\Http\Controllers\HomeController;
+use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\TeamController;
 use App\Http\Controllers\MenuController;
+use App\Http\Controllers\PortfolioController;
 use Illuminate\Support\Facades\Route;
 
 route::get('/', [HomeController::class, 'home'])->name('home');
@@ -23,12 +25,12 @@ route::middleware(['admin'])->group(function () {
     route::put('/admin/profile/update', [AdminController::class, 'update'])->name('admin.profile.update');
     route::get('/admin/logout', [AdminController::class, 'logout'])->name('admin.logout');
 
-    route::get('/admin/menu', [MenuController::class, 'menu'])->name('admin.menu');
-    route::get('/admin/menu/tambah', [MenuController::class, 'create'])->name('admin.menu.create');
-    route::post('/admin/menu/tambah', [MenuController::class, 'store'])->name('admin.menu.store');
-    route::get('/admin/menu/edit/{id}', [MenuController::class, 'edit'])->name('admin.menu.edit');
-    route::put('/admin/menu/edit/{id}', [MenuController::class, 'update'])->name('admin.menu.update');
-    route::get('/admin/menu/delete/{id}', [MenuController::class, 'delete'])->name('admin.menu.delete');
+    route::get('/admin/portfolio', [PortfolioController::class, 'portfolio'])->name('admin.portfolio');
+    route::get('/admin/portfolio/tambah', [PortfolioController::class, 'create'])->name('admin.portfolio.create');
+    route::post('/admin/portfolio/tambah', [PortfolioController::class, 'store'])->name('admin.portfolio.store');
+    route::get('/admin/portfolio/edit/{id}', [PortfolioController::class, 'edit'])->name('admin.portfolio.edit');
+    route::put('/admin/portfolio/edit/{id}', [PortfolioController::class, 'update'])->name('admin.portfolio.update');
+    route::get('/admin/portfolio/delete/{id}', [PortfolioController::class, 'delete'])->name('admin.portfolio.delete');
 
     route::get('/admin/team', [TeamController::class, 'team'])->name('admin.team');
     route::get('/admin/team/tambah', [TeamController::class, 'create'])->name('admin.team.create');
@@ -59,4 +61,11 @@ route::middleware(['admin'])->group(function () {
     route::get('/admin/about/edit/{id}', [AboutController::class, 'edit'])->name('admin.about.edit');
     route::put('/admin/about/edit/{id}', [AboutController::class, 'update'])->name('admin.about.update');
     route::get('/admin/about/delete/{id}', [AboutController::class, 'delete'])->name('admin.about.delete');
+
+    route::get('/admin/kategori', [KategoriController::class, 'kategori'])->name('admin.kategori');
+    route::get('/admin/kategori/tambah', [KategoriController::class, 'create'])->name('admin.kategori.create');
+    route::post('/admin/kategori/tambah', [KategoriController::class, 'store'])->name('admin.kategori.store');
+    route::get('/admin/kategori/edit/{id}', [KategoriController::class, 'edit'])->name('admin.kategori.edit');
+    route::put('/admin/kategori/edit/{id}', [KategoriController::class, 'update'])->name('admin.kategori.update');
+    route::get('/admin/kategori/delete/{id}', [KategoriController::class, 'delete'])->name('admin.kategori.delete');
 });

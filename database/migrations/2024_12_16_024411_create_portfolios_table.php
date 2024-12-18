@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('menus', function (Blueprint $table) {
+        Schema::create('portfolios', function (Blueprint $table) {
             $table->integer('id_menu')->primary()->autoIncrement();
             $table->string('nama_menu', 50);
             $table->string('foto')->nullable();

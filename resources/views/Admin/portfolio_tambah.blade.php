@@ -1,6 +1,6 @@
 @extends('Admin.layouts.app')
 
-@section('title', 'Tambah Menu')
+@section('title', 'Tambah Portfolio')
 
 @section('content')
 
@@ -10,13 +10,13 @@
             <h6 class="mb-4">Tambah Menu</h6>
             <div class="card">
                 <div class="card-body">
-                    <form action="{{ route('admin.menu.store') }}" method="POST" enctype="multipart/form-data">
+                    <form action="{{ route('admin.portfolio.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
                         <div class="mb-3">
-                            <label for="nama_menu" class="form-label">Nama Menu</label>
-                            <input type="text" class="form-control" id="nama_menu" name="nama_menu">
+                            <label for="nama_portfolio" class="form-label">Nama Portfolio</label>
+                            <input type="text" class="form-control" id="nama_portfolio" name="nama_portfolio">
                             <div class="text-danger">
-                                @error('nama_menu')
+                                @error('nama_portfolio')
                                 {{ $message }}
                                 @enderror
                             </div>
