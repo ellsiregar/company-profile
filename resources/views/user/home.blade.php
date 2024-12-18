@@ -202,10 +202,10 @@
 
             @foreach ($portfolios as $portfolio)
             <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
-                <img src="{{ asset('assets_main/img/masonry-portfolio/masonry-portfolio-1.jpg') }}" class="img-fluid" alt="">
+                <img src="{{ asset('storage/' . $portfolio->foto) }}" class="img-fluid" alt="">
                 <div class="portfolio-info">
-                  <h4>App 1</h4>
-                  <p>Lorem ipsum, dolor sit</p>
+                  <h4>{{ $portfolio->nama_portfolio}}</h4>
+                  <p>{{ $portfolio->deskripsi}}</p>
                   <a href="{{ asset('assets_main/img/masonry-portfolio/masonry-portfolio-1.jpg') }}" title="App 1" data-gallery="portfolio-gallery-app" class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
                   <a href="portfolio-details.html" title="More Details" class="details-link"><i class="bi bi-link-45deg"></i></a>
                 </div>
