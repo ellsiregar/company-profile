@@ -12,8 +12,14 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('portfolios', function (Blueprint $table) {
-            $table->integer('id_menu')->primary()->autoIncrement();
-            $table->string('nama_menu', 50);
+            $table->integer('id_portfolio')->primary()->autoIncrement();
+            $table->integer('id_kategori');
+            $table->foreign('id_kategori')
+                  ->references('id_kategori')
+                  ->on('kategoris')
+                  ->onDelete('cascade')
+                  ->onUpdate('cascade');
+            $table->string('nama_portfolio', 50);
             $table->string('foto')->nullable();
             $table->timestamps();
         });
