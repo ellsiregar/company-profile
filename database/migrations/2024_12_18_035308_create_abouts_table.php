@@ -13,6 +13,9 @@ return new class extends Migration
     {
         Schema::create('abouts', function (Blueprint $table) {
             $table->id();
+            $table->string('judul', 50);
+            $table->string('deskripsi', 255);
+            $table->string('foto')->nullable();
             $table->timestamps();
         });
     }
