@@ -10,9 +10,10 @@ class company extends Model
     protected $primaryKey = 'id_company';
 
     protected $fillable = [
-        'no_tlpn',
-        'email',
-        'lokasi',
+        'nama_perusahaan',
+        'judul',
+        'deskripsi',
+        'fasilitas',
 
     ];
 }

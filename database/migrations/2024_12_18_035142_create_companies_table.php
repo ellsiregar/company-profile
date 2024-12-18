@@ -12,7 +12,11 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('companies', function (Blueprint $table) {
-            $table->id();
+            $table->integer('id_company')->primary()->autoIncrement();
+            $table->string('nama_perusahaan',255);
+            $table->string('judul',255);
+            $table->string('deskripsi', 255);
+            $table->string('fasilitas', 255);
             $table->timestamps();
         });
     }
