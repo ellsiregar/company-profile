@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\about;
+use App\Models\company;
 use App\Models\contact;
 use App\Models\portfolio;
 use App\Models\team;
@@ -16,6 +17,7 @@ class HomeController extends Controller
         $teams = team::all();
         $portfolios = portfolio::all();
         $about = about::first();
-        return view('user.home', compact('contact', 'teams','portfolios','about'));
+        $companys = company::all();
+        return view('user.home', compact('contact', 'teams','portfolios','about','companys'));
     }
 }
