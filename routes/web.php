@@ -10,6 +10,7 @@ use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\TeamController;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\PortfolioController;
+use App\Http\Controllers\ServisController;
 use Illuminate\Support\Facades\Route;
 
 route::get('/', [HomeController::class, 'home'])->name('home');
@@ -68,4 +69,12 @@ route::middleware(['admin'])->group(function () {
     route::get('/admin/kategori/edit/{id}', [KategoriController::class, 'edit'])->name('admin.kategori.edit');
     route::put('/admin/kategori/edit/{id}', [KategoriController::class, 'update'])->name('admin.kategori.update');
     route::get('/admin/kategori/delete/{id}', [KategoriController::class, 'delete'])->name('admin.kategori.delete');
+
+
+    route::get('/admin/servis', [ServisController::class, 'servis'])->name('admin.servis');
+    route::get('/admin/servis/tambah', [ServisController::class, 'create'])->name('admin.servis.create');
+    route::post('/admin/servis/tambah', [ServisController::class, 'store'])->name('admin.servis.store');
+    route::get('/admin/servis/edit/{id}', [ServisController::class, 'edit'])->name('admin.servis.edit');
+    route::put('/admin/servis/edit/{id}', [ServisController::class, 'update'])->name('admin.servis.update');
+    route::get('/admin/servis/delete/{id}', [ServisController::class, 'delete'])->name('admin.servis.delete');
 });
