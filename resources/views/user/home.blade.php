@@ -185,7 +185,7 @@
                                 <div
                                     class="col-lg-4 col-md-6 portfolio-item isotope-item filter-{{ Str::slug($portfolio->kategori->nama_kategori, '-') }}">
                                     <img src="{{ asset('storage/' . $portfolio->foto) }}" class="img-fluid"
-                                        alt="" style="width: 400px; height: 400px; object-fit: cover;">
+                                        alt="" style="width: 300px; height: 300px; object-fit: cover;">
                                     <div class="portfolio-info">
                                         <h4>{{ $portfolio->nama_portfolio }}</h4>
                                         <p>{{ $portfolio->deskripsi }}</p>
