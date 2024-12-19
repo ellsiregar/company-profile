@@ -158,124 +158,158 @@
 
             </div>
 
-            <!-- Portfolio Section -->
-            <section id="portfolio" class="portfolio section">
+        </section>
 
-                <!-- Section Title -->
-                <div class="container section-title" data-aos="fade-up">
-                    <h2>Portfolio</h2>
-                    <p>Check our Portfolio</p>
-                </div><!-- End Section Title -->
+        <!-- Portfolio Section -->
+        <section id="portfolio" class="portfolio section">
 
-                <div class="container">
+            <!-- Section Title -->
+            <div class="container section-title" data-aos="fade-up">
+                <h2>Portfolio</h2>
+                <p>Check our Portfolio</p>
+            </div><!-- End Section Title -->
 
-                    <div class="isotope-layout" data-default-filter="*" data-layout="masonry"
-                        data-sort="original-order">
+            <div class="container">
 
-                        <ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100">
-                            <li data-filter="*" class="filter-active">All</li>
-                            @foreach ($kategoris as $kategori)
-                                <li data-filter=".filter-{{ Str::slug($kategori->nama_kategori, '-') }}">
-                                    {{ $kategori->nama_kategori }}</li>
-                            @endforeach
-                        </ul><!-- End Portfolio Filters -->
+                <div class="isotope-layout" data-default-filter="*" data-layout="masonry" data-sort="original-order">
 
-                        <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
-                            @foreach ($portfolios as $portfolio)
-                                <div
-                                    class="col-lg-4 col-md-6 portfolio-item isotope-item filter-{{ Str::slug($portfolio->kategori->nama_kategori, '-') }}">
-                                    <img src="{{ asset('storage/' . $portfolio->foto) }}" class="img-fluid"
-                                        alt="" style="width: 300px; height: 300px; object-fit: cover;">
-                                    <div class="portfolio-info">
-                                        <h4>{{ $portfolio->nama_portfolio }}</h4>
-                                        <p>{{ $portfolio->deskripsi }}</p>
-                                        <a href="{{ asset('assets_main/img/masonry-portfolio/masonry-portfolio-1.jpg') }}"
-                                            title="App 1" data-gallery="portfolio-gallery-app"
-                                            class="glightbox preview-link">
-                                            <i class="bi bi-zoom-in"></i>
-                                        </a>
-                                        <a href="portfolio-details.html" title="More Details" class="details-link">
-                                            <i class="bi bi-link-45deg"></i>
-                                        </a>
-                                    </div>
-                                </div><!-- End Portfolio Item -->
-                            @endforeach
-                        </div><!-- End Portfolio Container -->
+                    <ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100">
+                        <li data-filter="*" class="filter-active">All</li>
+                        @foreach ($kategoris as $kategori)
+                            <li data-filter=".filter-{{ Str::slug($kategori->nama_kategori, '-') }}">
+                                {{ $kategori->nama_kategori }}</li>
+                        @endforeach
+                    </ul><!-- End Portfolio Filters -->
 
-                    </div>
+                    <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
+                        @foreach ($portfolios as $portfolio)
+                            <div
+                                class="col-lg-4 col-md-6 portfolio-item isotope-item filter-{{ Str::slug($portfolio->kategori->nama_kategori, '-') }}">
+                                <img src="{{ asset('storage/' . $portfolio->foto) }}" class="img-fluid"
+                                    alt="" style="width: 300px; height: 300px; object-fit: cover;">
+                                <div class="portfolio-info">
+                                    <h4>{{ $portfolio->nama_portfolio }}</h4>
+                                    <p>{{ $portfolio->deskripsi }}</p>
+                                    <a href="{{ asset('assets_main/img/masonry-portfolio/masonry-portfolio-1.jpg') }}"
+                                        title="App 1" data-gallery="portfolio-gallery-app"
+                                        class="glightbox preview-link">
+                                        <i class="bi bi-zoom-in"></i>
+                                    </a>
+                                    <a href="portfolio-details.html" title="More Details" class="details-link">
+                                        <i class="bi bi-link-45deg"></i>
+                                    </a>
+                                </div>
+                            </div><!-- End Portfolio Item -->
+                        @endforeach
+                    </div><!-- End Portfolio Container -->
 
                 </div>
 
-            </section><!-- /Portfolio Section -->
+            </div>
 
+        </section><!-- /Portfolio Section -->
 
-            <!-- Team Section -->
-            <section id="team" class="team section">
+        <!-- Team Section -->
+        <section id="team" class="team section">
 
-                <!-- Section Title -->
-                <div class="container section-title" data-aos="fade-up">
-                    <h2>Team</h2>
-                    <p>our Team</p>
-                </div><!-- End Section Title -->
+            <!-- Section Title -->
+            <div class="container section-title" data-aos="fade-up">
+                <h2>Team</h2>
+                <p>our Team</p>
+            </div><!-- End Section Title -->
 
-                <div class="container">
+            <div class="container">
 
-                    <div class="row gy-4">
+                <div class="row gy-4">
 
-                        @foreach ($teams as $team)
-                            <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up"
-                                data-aos-delay="100">
-                                <div class="team-member">
-                                    <div class="member-img">
-                                        @if (!empty($team->foto))
-                                            <img src="{{ asset('storage/' . $team->foto) }}" class="img-fluid"
-                                                alt="">
-                                        @else
-                                            <p>Foto belum tersedia.</p>
-                                        @endif
-                                        <div class="social">
-                                            <a href=""><i class="bi bi-twitter-x"></i></a>
-                                            <a href=""><i class="bi bi-facebook"></i></a>
-                                            <a href=""><i class="bi bi-instagram"></i></a>
-                                            <a href=""><i class="bi bi-linkedin"></i></a>
-                                        </div>
-                                    </div>
-                                    <div class="member-info">
-                                        <h4>{{ $team->nama }}</h4>
-                                        <span>Chief Executive Officer</span>
+                    @foreach ($teams as $team)
+                        <div class="col-lg-3 col-md-6 d-flex align-items-stretch" data-aos="fade-up"
+                            data-aos-delay="100">
+                            <div class="team-member">
+                                <div class="member-img">
+                                    @if (!empty($team->foto))
+                                        <img src="{{ asset('storage/' . $team->foto) }}" class="img-fluid"
+                                            alt="">
+                                    @else
+                                        <p>Foto belum tersedia.</p>
+                                    @endif
+                                    <div class="social">
+                                        <a href=""><i class="bi bi-twitter-x"></i></a>
+                                        <a href=""><i class="bi bi-facebook"></i></a>
+                                        <a href=""><i class="bi bi-instagram"></i></a>
+                                        <a href=""><i class="bi bi-linkedin"></i></a>
                                     </div>
                                 </div>
-                            </div><!-- End Team Member -->
-                        @endforeach
-
-                    </div>
+                                <div class="member-info">
+                                    <h4>{{ $team->nama }}</h4>
+                                    <span>Chief Executive Officer</span>
+                                </div>
+                            </div>
+                        </div><!-- End Team Member -->
+                    @endforeach
 
                 </div>
 
-            </section><!-- /Team Section -->
+            </div>
 
-            <!-- Contact Section -->
-            <section id="contact" class="contact section">
+        </section><!-- /Team Section -->
 
-                <!-- Section Title -->
-                <div class="container section-title" data-aos="fade-up">
-                    <h2>Contact</h2>
-                    <p>Contact Us</p>
-                </div><!-- End Section Title -->
+        <!-- Contact Section -->
+        <section id="contact" class="contact section">
 
-                <div class="container" data-aos="fade-up" data-aos-delay="100">
+            <!-- Section Title -->
+            <div class="container section-title" data-aos="fade-up">
+                <h2>Contact</h2>
+                <p>Contact Us</p>
+            </div><!-- End Section Title -->
 
-                    <div class="mb-4" data-aos="fade-up" data-aos-delay="200">
-                        <iframe style="border:0; width: 100%; height: 270px;"
-                            src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d31790.43720203043!2d105.3236314!3d-5.1351351!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sid!2sid!4v1734586532614!5m2!1sid!2sid"
-                            frameborder="0" allowfullscreen="" loading="lazy"
-                            referrerpolicy="no-referrer-when-downgrade"></iframe>
+            <div class="container" data-aos="fade-up" data-aos-delay="100">
 
-                    </div><!-- End Google Maps https://maps.app.goo.gl/oB5mQreqZ7bWsjV57 -->
+                <!-- Sertakan Leaflet CSS dan JS -->
+                <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+                <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 
-                    <div class="row gy-4">
-                        <div class="col-lg-4">
-                            <div class="info-item d-flex" data-aos="fade-up" data-aos-delay="300">
+                <!-- Kontainer untuk peta -->
+                <div id="map" style="height: 270px;"></div>
+
+                <script>
+                    // Nama lokasi dari controller
+                    var lokasi = "{{ $lokasi }}";
+
+                    // Gunakan Nominatim API untuk mendapatkan koordinat dari nama lokasi
+                    fetch(`https://nominatim.openstreetmap.org/search?format=json&q=${lokasi}`)
+                        .then(response => response.json())
+                        .then(data => {
+                            if (data.length > 0) {
+                                // Ambil koordinat dari hasil pencarian
+                                var latitude = data[0].lat;
+                                var longitude = data[0].lon;
+
+                                // Membuat peta dan menambahkan marker
+                                var map = L.map('map').setView([latitude, longitude], 13);
+
+                                // Menambahkan layer peta OpenStreetMap
+                                L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                                    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+                                }).addTo(map);
+
+                                // Menambahkan marker pada lokasi dan menampilkan nama lokasi dalam popup
+                                L.marker([latitude, longitude]).addTo(map)
+                                    .bindPopup('<b>' + lokasi + '</b>')
+                                    .openPopup();
+                            } else {
+                                alert("Lokasi tidak ditemukan.");
+                            }
+                        })
+                        .catch(error => {
+                            console.error("Error:", error);
+                        });
+                </script>
+
+                <div class="row gy-4">
+                    <div class="col-lg-12">
+                        <div class="d-flex justify-content-between">
+                            <div class="info-item d-flex align-items-end" data-aos="fade-up" data-aos-delay="300">
                                 <i class="bi bi-geo-alt flex-shrink-0"></i>
                                 <div>
                                     <h3>Address</h3>
@@ -310,6 +344,11 @@
                                     @endif
                                 </div>
                             </div><!-- End Info Item -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
 
     </main>
 

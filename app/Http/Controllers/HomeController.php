@@ -22,6 +22,8 @@ class HomeController extends Controller
         $company = company::first();
         $servis = servis::all();
         $kategoris = kategori::all();
-        return view('user.home', compact('contact', 'teams','portfolios','about','company', 'servis', 'kategoris'));
+
+        $lokasi = $contact->lokasi; // Ambil nama lokasi dari field 'lokasi'
+        return view('user.home', compact('contact', 'teams','portfolios','about','company', 'servis', 'kategoris', 'lokasi'));
     }
 }
