@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\about;
 use App\Models\company;
 use App\Models\contact;
+use App\Models\kategori;
 use App\Models\portfolio;
 use App\Models\servis;
 use App\Models\team;
@@ -20,6 +21,7 @@ class HomeController extends Controller
         $about = about::first();
         $company = company::first();
         $servis = servis::all();
-        return view('user.home', compact('contact', 'teams','portfolios','about','company', 'servis'));
+        $kategoris = kategori::all();
+        return view('user.home', compact('contact', 'teams','portfolios','about','company', 'servis', 'kategoris'));
     }
 }
