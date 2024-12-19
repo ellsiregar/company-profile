@@ -72,12 +72,12 @@
                     </div>
                 </div>
 
-                @foreach ($companys as $company )
+                @foreach ($servis as $servis )
                 <div class="row gy-4 mt-5 justify-content-center" data-aos="fade-up" data-aos-delay="200">
                     <div class="col-xl-2 col-md-4" data-aos="fade-up" data-aos-delay="300">
                         <div class="icon-box">
                             <i class="bi bi-binoculars"></i>
-                            <h3><a href="{{ $company->fasilitas}}"></a></h3>
+                            <h3><a href="">{{ $servis->fasilitas}}</a></h3>
                         </div>
                     </div>
                 @endforeach
@@ -163,8 +163,8 @@
 
                 <!-- Section Title -->
                 <div class="container section-title" data-aos="fade-up">
-                    <h2>Menu</h2>
-                    <p>Check our Menu</p>
+                    <h2>Portfolio</h2>
+                    <p>Check our Portfolio</p>
                 </div><!-- End Section Title -->
 
                 <div class="container">

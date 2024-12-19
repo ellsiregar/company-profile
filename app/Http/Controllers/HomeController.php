@@ -6,6 +6,7 @@ use App\Models\about;
 use App\Models\company;
 use App\Models\contact;
 use App\Models\portfolio;
+use App\Models\servis;
 use App\Models\team;
 use Illuminate\Http\Request;
 
@@ -17,7 +18,8 @@ class HomeController extends Controller
         $teams = team::all();
         $portfolios = portfolio::all();
         $about = about::first();
-        $companys = company::all();
-        return view('user.home', compact('contact', 'teams','portfolios','about','companys'));
+        $company = company::first();
+        $servis = servis::all();
+        return view('user.home', compact('contact', 'teams','portfolios','about','company', 'servis'));
     }
 }
