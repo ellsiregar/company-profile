@@ -67,21 +67,21 @@
 
                 <div class="row justify-content-center text-center" data-aos="fade-up" data-aos-delay="100">
                     <div class="col-xl-6 col-lg-8">
-                        <h2>{{$company->judul}}</h2>
-                        <p>{{$company->deskripsi}}</p>
+                        <h2>{{ $company->judul }}</h2>
+                        <p>{{ $company->deskripsi }}</p>
                     </div>
                 </div>
 
-                @foreach ($servis as $servis )
                 <div class="row gy-4 mt-5 justify-content-center" data-aos="fade-up" data-aos-delay="200">
-                    <div class="col-xl-2 col-md-4" data-aos="fade-up" data-aos-delay="300">
-                        <div class="icon-box">
-                            <i class="bi bi-binoculars"></i>
-                            <h3><a href="">{{ $servis->fasilitas}}</a></h3>
+                    @foreach ($servis as $servis)
+                        <div class="col-xl-2 col-md-4" data-aos="fade-up" data-aos-delay="300">
+                            <div class="icon-box">
+                                <i class="bi bi-binoculars"></i>
+                                <h3><a href="">{{ $servis->fasilitas }}</a></h3>
+                            </div>
                         </div>
-                    </div>
-                @endforeach
-            </div>
+                    @endforeach
+                </div>
 
         </section><!-- /Hero Section -->
 
@@ -174,29 +174,32 @@
 
                         <ul class="portfolio-filters isotope-filters" data-aos="fade-up" data-aos-delay="100">
                             <li data-filter="*" class="filter-active">All</li>
-                            <li data-filter=".filter-app">App</li>
-                            <li data-filter=".filter-product">Card</li>
-                            <li data-filter=".filter-branding">Web</li>
+                            @foreach ($kategoris as $kategori)
+                                <li data-filter=".filter-{{ Str::slug($kategori->nama_kategori, '-') }}">
+                                    {{ $kategori->nama_kategori }}</li>
+                            @endforeach
                         </ul><!-- End Portfolio Filters -->
 
                         <div class="row gy-4 isotope-container" data-aos="fade-up" data-aos-delay="200">
-
                             @foreach ($portfolios as $portfolio)
-                                <div class="col-lg-4 col-md-6 portfolio-item isotope-item filter-app">
+                                <div
+                                    class="col-lg-4 col-md-6 portfolio-item isotope-item filter-{{ Str::slug($portfolio->kategori->nama_kategori, '-') }}">
                                     <img src="{{ asset('storage/' . $portfolio->foto) }}" class="img-fluid"
-                                        alt="">
+                                        alt="" style="width: 400px; height: 400px; object-fit: cover;">
                                     <div class="portfolio-info">
                                         <h4>{{ $portfolio->nama_portfolio }}</h4>
                                         <p>{{ $portfolio->deskripsi }}</p>
                                         <a href="{{ asset('assets_main/img/masonry-portfolio/masonry-portfolio-1.jpg') }}"
                                             title="App 1" data-gallery="portfolio-gallery-app"
-                                            class="glightbox preview-link"><i class="bi bi-zoom-in"></i></a>
-                                        <a href="portfolio-details.html" title="More Details" class="details-link"><i
-                                                class="bi bi-link-45deg"></i></a>
+                                            class="glightbox preview-link">
+                                            <i class="bi bi-zoom-in"></i>
+                                        </a>
+                                        <a href="portfolio-details.html" title="More Details" class="details-link">
+                                            <i class="bi bi-link-45deg"></i>
+                                        </a>
                                     </div>
                                 </div><!-- End Portfolio Item -->
                             @endforeach
-
                         </div><!-- End Portfolio Container -->
 
                     </div>
@@ -225,11 +228,11 @@
                                 <div class="team-member">
                                     <div class="member-img">
                                         @if (!empty($team->foto))
-                                        <img src="{{ asset('storage/' . $team->foto) }}" class="img-fluid"
-                                            alt="">
-                                            @else
+                                            <img src="{{ asset('storage/' . $team->foto) }}" class="img-fluid"
+                                                alt="">
+                                        @else
                                             <p>Foto belum tersedia.</p>
-                                            @endif
+                                        @endif
                                         <div class="social">
                                             <a href=""><i class="bi bi-twitter-x"></i></a>
                                             <a href=""><i class="bi bi-facebook"></i></a>
@@ -238,7 +241,7 @@
                                         </div>
                                     </div>
                                     <div class="member-info">
-                                        <h4>Walter White</h4>
+                                        <h4>{{ $team->nama }}</h4>
                                         <span>Chief Executive Officer</span>
                                     </div>
                                 </div>
@@ -277,9 +280,9 @@
                                 <div>
                                     <h3>Address</h3>
                                     @if (!empty($contact->lokasi))
-                                    <p>{{ $contact->lokasi }}</p>
+                                        <p>{{ $contact->lokasi }}</p>
                                     @else
-                                    <p>Lokasi belum tersedia.</p>
+                                        <p>Lokasi belum tersedia.</p>
                                     @endif
                                 </div>
                             </div><!-- End Info Item -->
@@ -289,9 +292,9 @@
                                 <div>
                                     <h3>Call Us</h3>
                                     @if (!empty($contact->no_tlpn))
-                                    <p>{{ $contact->no_tlpn }}</p>
+                                        <p>{{ $contact->no_tlpn }}</p>
                                     @else
-                                    <p>No telepon belum tersedia.</p>
+                                        <p>No telepon belum tersedia.</p>
                                     @endif
                                 </div>
                             </div><!-- End Info Item -->
@@ -301,9 +304,9 @@
                                 <div>
                                     <h3>Email Us</h3>
                                     @if (!empty($contact->email))
-                                    <p>{{ $contact->email }}</p>
+                                        <p>{{ $contact->email }}</p>
                                     @else
-                                    <p>Email belum tersedia.</p>
+                                        <p>Email belum tersedia.</p>
                                     @endif
                                 </div>
                             </div><!-- End Info Item -->
@@ -451,6 +454,30 @@
 
     <!-- Main JS File -->
     <script src="{{ asset('assets_main/js/main.js') }}"></script>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const portfolioContainer = document.querySelector('.isotope-container');
+            if (portfolioContainer) {
+                const isotopeInstance = new Isotope(portfolioContainer, {
+                    itemSelector: '.portfolio-item',
+                    layoutMode: 'fitRows'
+                });
+
+                const filters = document.querySelectorAll('.portfolio-filters li');
+                filters.forEach(filter => {
+                    filter.addEventListener('click', function() {
+                        filters.forEach(el => el.classList.remove('filter-active'));
+                        this.classList.add('filter-active');
+                        const filterValue = this.getAttribute('data-filter');
+                        isotopeInstance.arrange({
+                            filter: filterValue
+                        });
+                    });
+                });
+            }
+        });
+    </script>
 
 </body>
 
