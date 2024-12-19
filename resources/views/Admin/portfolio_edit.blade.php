@@ -16,14 +16,17 @@
                         <div class="mb-3">
                             <label for="id_kategori" class="form-label">Nama Kategori</label>
                             <select name="id_kategori" id="id_kategori" class="form-select">
-                                <option value="">pilih</option>
+                                <option value="">Pilih</option>
                                 @foreach($kategoris as $kategori)
-                                <option value="{{ $kategori->id_kategori }}">{{$kategori->nama_kategori}}</option>
+                                <option value="{{ $kategori->id_kategori }}"
+                                    {{ old('id_kategori', $portfolio->id_kategori) == $kategori->id_kategori ? 'selected' : '' }}>
+                                    {{$kategori->nama_kategori}}
+                                </option>
                                 @endforeach
                             </select>
                             <div class="text-danger">
                                 @error('id_kategori')
-                                {{$message}}
+                                {{ $message }}
                                 @enderror
                             </div>
                         </div>
@@ -37,7 +40,7 @@
                             </div>
                         </div>
                         <div class="mb-3">
-                            <label for="deskripsi" class="form-label">deskripsi</label>
+                            <label for="deskripsi" class="form-label">Deskripsi</label>
                             <input type="text" class="form-control" id="deskripsi" name="deskripsi" value="{{ old('deskripsi', $portfolio->deskripsi) }}">
                             <div class="text-danger">
                                 @error('deskripsi')
@@ -49,14 +52,14 @@
                             <label for="foto" class="form-label">Foto</label>
                             <input type="file" class="form-control" id="foto" name="foto">
                             <div class="text-danger">
-                            @error('foto')
-                            {{ $message }}
-                            @enderror
+                                @error('foto')
+                                {{ $message }}
+                                @enderror
+                            </div>
                         </div>
-                    </div>
-                    <div class="mb-2">
-                        <img src="{{ asset('storage/' . $portfolio->foto) }}" alt="" height="100">
-                    </div>
+                        <div class="mb-2">
+                            <img src="{{ asset('storage/' . $portfolio->foto) }}" alt="Foto Portfolio" height="100">
+                        </div>
 
                         <button type="submit" class="btn btn-primary">Simpan</button>
                     </form>
