@@ -31,7 +31,7 @@
                                     <th scope="row">{{ $loop->iteration}}</th>
                                     <td>{{ $servis->fasilitas}}</td>
                                     <td>
-                                        <a href="{{ route('admin.kategori.edit', $servis->id) }}" class="btn btn-warning btn-sm">Edit</a>
+                                        <a href="{{ route('admin.servis.edit', $servis->id) }}" class="btn btn-warning btn-sm">Edit</a>
                                         <a href="{{ route('admin.servis.delete', $servis->id) }}" onclick="return confirm('Yakin ingin hapus data?')" class="btn btn-danger btn-sm">Hapus</a>
                                     </td>
                                 </tr>
