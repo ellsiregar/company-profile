@@ -18,7 +18,10 @@
                             <select name="id_kategori" id="id_kategori" class="form-select">
                                 <option value="">pilih</option>
                                 @foreach($kategoris as $kategori)
-                                <option value="{{ $kategori->id_kategori }}">{{$kategori->nama_kategori}}</option>
+                                <option value="{{ $kategori->id_kategori }}"
+                                    {{ $kategori->id_kategori == old('id_kategori', $portfolio->id_kategori) ? 'selected' : '' }}>
+                                    {{$kategori->nama_kategori}}
+                                </option>
                                 @endforeach
                             </select>
                             <div class="text-danger">
