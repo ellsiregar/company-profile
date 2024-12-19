@@ -224,8 +224,12 @@
                                 data-aos-delay="100">
                                 <div class="team-member">
                                     <div class="member-img">
+                                        @if (!empty($team->foto))
                                         <img src="{{ asset('storage/' . $team->foto) }}" class="img-fluid"
                                             alt="">
+                                            @else
+                                            <p>Foto belum tersedia.</p>
+                                            @endif
                                         <div class="social">
                                             <a href=""><i class="bi bi-twitter-x"></i></a>
                                             <a href=""><i class="bi bi-facebook"></i></a>
@@ -272,7 +276,11 @@
                                 <i class="bi bi-geo-alt flex-shrink-0"></i>
                                 <div>
                                     <h3>Address</h3>
+                                    @if (!empty($contact->lokasi))
                                     <p>{{ $contact->lokasi }}</p>
+                                    @else
+                                    <p>Lokasi belum tersedia.</p>
+                                    @endif
                                 </div>
                             </div><!-- End Info Item -->
 
@@ -280,7 +288,11 @@
                                 <i class="bi bi-telephone flex-shrink-0"></i>
                                 <div>
                                     <h3>Call Us</h3>
+                                    @if (!empty($contact->no_tlpn))
                                     <p>{{ $contact->no_tlpn }}</p>
+                                    @else
+                                    <p>No telepon belum tersedia.</p>
+                                    @endif
                                 </div>
                             </div><!-- End Info Item -->
 
@@ -288,7 +300,11 @@
                                 <i class="bi bi-envelope flex-shrink-0"></i>
                                 <div>
                                     <h3>Email Us</h3>
+                                    @if (!empty($contact->email))
                                     <p>{{ $contact->email }}</p>
+                                    @else
+                                    <p>Email belum tersedia.</p>
+                                    @endif
                                 </div>
                             </div><!-- End Info Item -->
 
