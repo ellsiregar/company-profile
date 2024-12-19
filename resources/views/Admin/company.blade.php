@@ -22,7 +22,6 @@
                                 <th scope="col">Nama Company</th>
                                 <th scope="col">Judul</th>
                                 <th scope="col">Deskripsi</th>
-                                <th scope="col">Fasilitas</th>
                                 <th scope="col" class="text-center">Actions</th>
                             </tr>
                         </thead>
@@ -33,7 +32,6 @@
                                 <td>{{$company->nama_perusahaan}}</td>
                                 <td>{{$company->judul}}</td>
                                 <td>{{$company->deskripsi}}</td>
-                                <td>{{$company->fasilitas}}</td>
                                 <td class="text-center">
                                     <a href="{{route('admin.company.edit', $company->id_company)}}" class="btn btn-warning btn-sm">Edit</a>
                                     <a href="{{route('admin.company.delete', $company->id_company)}}" onclick="return confirm('Yakin ingin hapus data?')" class="btn btn-danger btn-sm">Delete</a>

@@ -33,14 +33,12 @@ class CompanyController extends Controller
             'nama_perusahaan' => 'required',
             'judul' => 'required',
             'deskripsi' => 'required',
-            'fasilitas' => 'required',
         ]);
 
         company::create([
             'nama_perusahaan' => $request->nama_perusahaan,
             'judul' => $request->judul,
             'deskripsi' => $request->deskripsi,
-            'fasilitas' => $request->fasilitas,
         ]);
 
         return redirect()->route('admin.company')->with('success', 'Data Company Berhasil Ditambahkan.');
@@ -73,7 +71,6 @@ class CompanyController extends Controller
             'nama_perusahaan' => 'required',
             'judul' => 'required',
             'deskripsi' => 'required',
-            'fasilitas' => 'required',
         ]);
 
         $company = company::findOrFail($id);
@@ -82,7 +79,6 @@ class CompanyController extends Controller
             'nama_perusahaan' => $request->nama_perusahaan,
             'judul' => $request->judul,
             'deskripsi' => $request->deskripsi,
-            'fasilitas' => $request->fasilitas,
         ]);
 
         return redirect()->route('admin.company')->with('success', 'Data Company Berhasil Diperbarui.');

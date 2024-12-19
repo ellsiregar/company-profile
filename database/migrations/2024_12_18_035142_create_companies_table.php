@@ -16,7 +16,6 @@ return new class extends Migration
             $table->string('nama_perusahaan',255);
             $table->string('judul',255);
             $table->string('deskripsi', 255);
-            $table->string('fasilitas', 255);
             $table->timestamps();
         });
     }

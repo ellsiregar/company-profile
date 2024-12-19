@@ -39,15 +39,6 @@
                                 @enderror
                             </div>
                         </div>
-                        <div class="mb-3">
-                            <label for="fasilitas" class="form-label">Fasilitas</label>
-                            <input type="text" class="form-control" id="fasilitas" name="fasilitas">
-                            <div class="text-danger">
-                                @error('fasilitas')
-                                {{ $message }}
-                                @enderror
-                            </div>
-                        </div>
                         <button type="submit" class="btn btn-primary">Simpan</button>
                     </form>
                 </div>

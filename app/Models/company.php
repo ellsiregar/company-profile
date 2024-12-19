@@ -13,7 +13,6 @@ class company extends Model
         'nama_perusahaan',
         'judul',
         'deskripsi',
-        'fasilitas',
 
     ];
 }
