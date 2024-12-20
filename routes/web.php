@@ -10,11 +10,8 @@ use App\Http\Controllers\DetailservisController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\TeamController;
-use App\Http\Controllers\MenuController;
 use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\ServisController;
-use App\Models\detailportfolio;
-use App\Models\detailservis;
 use Illuminate\Support\Facades\Route;
 
 route::get('/', [HomeController::class, 'home'])->name('home');
