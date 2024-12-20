@@ -28,6 +28,15 @@
                                     @enderror
                                 </div>
                             </div>
+                            <div class="mb-3">
+                                <label for="deskripsi" class="form-label">Deskripsi</label>
+                                <input type="text" class="form-control" id="deskripsi" name="deskripsi" value="{{ old('deskripsi', $servis->deskripsi) }}">
+                                <div class="text-danger">
+                                    @error('deskripsi')
+                                    {{ $message }}
+                                    @enderror
+                                </div>
+                            </div>
                             <button type="submit" class="btn btn-primary">Simpan</button>
                         </form>
                     </div>
