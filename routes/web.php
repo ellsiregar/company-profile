@@ -5,16 +5,25 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Auth\AdminLoginController;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\ContactController;
+use App\Http\Controllers\DetailportfolioController;
+use App\Http\Controllers\DetailservisController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\TeamController;
 use App\Http\Controllers\MenuController;
 use App\Http\Controllers\PortfolioController;
 use App\Http\Controllers\ServisController;
+use App\Models\detailportfolio;
+use App\Models\detailservis;
 use Illuminate\Support\Facades\Route;
 
 route::get('/', [HomeController::class, 'home'])->name('home');
+<<<<<<< HEAD
 route::get('/', [HomeController::class, 'home'])->name('home');
+=======
+route::get('/detail-servis/{id}', [detailservis::class, 'servis'])->name('servis.detail');
+route::get('/detail-portfolio/{id}', [detailportfolio::class, 'portfolio'])->name('portfolio.detail');
+>>>>>>> 60be7aad1051b559c6746069b18923075fa8d148
 
 route::middleware(['guest'])->group(function () {
     route::get('/admin/login', [AdminLoginController::class, 'login'])->name('admin.login');
@@ -78,4 +87,19 @@ route::middleware(['admin'])->group(function () {
     route::get('/admin/servis/edit/{id}', [ServisController::class, 'edit'])->name('admin.servis.edit');
     route::put('/admin/servis/edit/{id}', [ServisController::class, 'update'])->name('admin.servis.update');
     route::get('/admin/servis/delete/{id}', [ServisController::class, 'delete'])->name('admin.servis.delete');
+
+    route::get('/admin/detail-servis', [DetailservisController::class, 'detail-servis'])->name('admin.detail-servis');
+    route::get('/admin/detail-servis/tambah', [DetailservisController::class, 'create'])->name('admin.detail-servis.create');
+    route::post('/admin/detail-servis/tambah', [DetailservisController::class, 'store'])->name('admin.detail-servis.store');
+    route::get('/admin/detail-servis/edit/{id}', [DetailservisController::class, 'edit'])->name('admin.detail-servis.edit');
+    route::put('/admin/detail-servis/edit/{id}', [DetailservisController::class, 'update'])->name('admin.detail-servis.update');
+    route::get('/admin/detail-servis/delete/{id}', [DetailservisController::class, 'delete'])->name('admin.detail-servis.delete');
+
+    route::get('/admin/detail-portfolio', [DetailportfolioController::class, 'detail-portfolio'])->name('admin.detail-portfolio');
+    route::get('/admin/detail-portfolio/tambah', [DetailportfolioController::class, 'create'])->name('admin.detail-portfolio.create');
+    route::post('/admin/detail-portfolio/tambah', [DetailportfolioController::class, 'store'])->name('admin.detail-portfolio.store');
+    route::get('/admin/detail-portfolio/edit/{id}', [DetailportfolioController::class, 'edit'])->name('admin.detail-portfolio.edit');
+    route::put('/admin/detail-portfolio/edit/{id}', [DetailportfolioController::class, 'update'])->name('admin.detail-portfolio.update');
+    route::get('/admin/detail-portfolio/delete/{id}', [DetailportfolioController::class, 'delete'])->name('admin.detail-portfolio.delete');
+
 });
