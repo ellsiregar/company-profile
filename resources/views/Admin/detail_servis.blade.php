@@ -26,7 +26,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                @foreach ( $servis as $servis )
+                                @foreach ( $detailservis as $detailservis )
                                 <tr>
                                     <th scope="row">{{ $loop->iteration}}</th>
                                     <td>{{ $detailservis->deskripsi}}</td>

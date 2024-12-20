@@ -21,7 +21,7 @@ class DetailservisController extends Controller
      */
     public function create()
     {
-        //
+        return view('Admin.detail_servis');
     }
 
     /**
@@ -29,7 +29,16 @@ class DetailservisController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $request->validate([
+            'deskripsi'=> 'required',
+
+        ]);
+
+        detailservis::create([
+            'deskripsi'=> $request->deskripsi,
+        ]);
+
+        return redirect()->route('admin.detail-servis')->with('success','Data detail servis Berhasil di Tambah');
     }
 
     /**
@@ -43,17 +52,31 @@ class DetailservisController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(detailservis $detailservis)
+    public function edit(detailservis $detailservis, $id)
     {
-        //
+        $detailservis = detailservis::find($id);
+        if(!$detailservis) {
+            return back();
+        }
+        return view('Admin.detail_servis.edit', compact('detailservis'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, detailservis $detailservis)
+    public function update(Request $request, detailservis $detailservis, $id)
     {
-        //
+
+        $detailservis = detailservis::find($id);
+
+        $request->validate([
+            'deskripsi' => 'required',
+        ]);
+        $detailservis->update([
+            'deskripsi' => $request->deskripsi,
+        ]);
+
+        return redirect()->route('admin.detail-servis')->with('success', "Data kategori Berhasil di Edit");
     }
 
     /**
