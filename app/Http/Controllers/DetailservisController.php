@@ -10,7 +10,7 @@ class DetailservisController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function detailservis()
     {
         $detailservis = detailservis::all();
         return view('Admin.detail_servis', compact('detailservis'));
