@@ -79,18 +79,5 @@ route::middleware(['admin'])->group(function () {
     route::put('/admin/servis/edit/{id}', [ServisController::class, 'update'])->name('admin.servis.update');
     route::get('/admin/servis/delete/{id}', [ServisController::class, 'delete'])->name('admin.servis.delete');
 
-    route::get('/admin/detail-servis', [DetailservisController::class, 'detail-servis'])->name('admin.detail-servis');
-    route::get('/admin/detail-servis/tambah', [DetailservisController::class, 'create'])->name('admin.detail-servis.create');
-    route::post('/admin/detail-servis/tambah', [DetailservisController::class, 'store'])->name('admin.detail-servis.store');
-    route::get('/admin/detail-servis/edit/{id}', [DetailservisController::class, 'edit'])->name('admin.detail-servis.edit');
-    route::put('/admin/detail-servis/edit/{id}', [DetailservisController::class, 'update'])->name('admin.detail-servis.update');
-    route::get('/admin/detail-servis/delete/{id}', [DetailservisController::class, 'delete'])->name('admin.detail-servis.delete');
-
-    route::get('/admin/detail-portfolio', [DetailportfolioController::class, 'detail-portfolio'])->name('admin.detail-portfolio');
-    route::get('/admin/detail-portfolio/tambah', [DetailportfolioController::class, 'create'])->name('admin.detail-portfolio.create');
-    route::post('/admin/detail-portfolio/tambah', [DetailportfolioController::class, 'store'])->name('admin.detail-portfolio.store');
-    route::get('/admin/detail-portfolio/edit/{id}', [DetailportfolioController::class, 'edit'])->name('admin.detail-portfolio.edit');
-    route::put('/admin/detail-portfolio/edit/{id}', [DetailportfolioController::class, 'update'])->name('admin.detail-portfolio.update');
-    route::get('/admin/detail-portfolio/delete/{id}', [DetailportfolioController::class, 'delete'])->name('admin.detail-portfolio.delete');
-
+    
 });
