@@ -5,8 +5,6 @@ use App\Http\Controllers\AdminController;
 use App\Http\Controllers\Auth\AdminLoginController;
 use App\Http\Controllers\CompanyController;
 use App\Http\Controllers\ContactController;
-use App\Http\Controllers\DetailportfolioController;
-use App\Http\Controllers\DetailservisController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\TeamController;
@@ -15,6 +13,8 @@ use App\Http\Controllers\ServisController;
 use Illuminate\Support\Facades\Route;
 
 route::get('/', [HomeController::class, 'home'])->name('home');
+route::get('/detail-servis/{id}', [HomeController::class, 'detailServis'])->name('detail.servis');
+route::get('/detail-portfolio/{id}', [HomeController::class, 'detailportfolio'])->name('detail.portfolio');
 
 route::middleware(['guest'])->group(function () {
     route::get('/admin/login', [AdminLoginController::class, 'login'])->name('admin.login');
@@ -79,5 +79,5 @@ route::middleware(['admin'])->group(function () {
     route::put('/admin/servis/edit/{id}', [ServisController::class, 'update'])->name('admin.servis.update');
     route::get('/admin/servis/delete/{id}', [ServisController::class, 'delete'])->name('admin.servis.delete');
 
-    
+
 });

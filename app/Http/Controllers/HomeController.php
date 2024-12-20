@@ -26,4 +26,16 @@ class HomeController extends Controller
         $lokasi = $contact->lokasi; // Ambil nama lokasi dari field 'lokasi'
         return view('user.home', compact('contact', 'teams','portfolios','about','company', 'servis', 'kategoris', 'lokasi'));
     }
+
+    public function detailServis($id)
+    {
+        $servis = servis::find($id);
+        return view('user.detail_servis', compact('servis'));
+    }
+
+    public function detailportfolio($id)
+    {
+        $portfolio = portfolio::find($id);
+        return view('user.detail_portfolio', compact('portfolio'));
+    }
 }

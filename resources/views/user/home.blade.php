@@ -82,7 +82,7 @@
                    <div class="col-xl-2 col-md-4" data-aos="fade-up" data-aos-delay="300">
                     <div class="icon-box">
                         <i class="bi bi-binoculars"></i>
-                        <h3><a href="">{{$servis->fasilitas}}</a></h3>
+                        <h3><a href="{{ route('detail.servis', $servis->id) }}">{{$servis->fasilitas}}</a></h3>
                     </div>
                     </div>
                    @endforeach
@@ -193,7 +193,7 @@
                                         class="glightbox preview-link">
                                         <i class="bi bi-zoom-in"></i>
                                     </a>
-                                    <a href="portfolio-details.html" title="More Details" class="details-link">
+                                    <a href="{{ route('detail.portfolio', $portfolio->id_portfolio) }}" {{$portfolio->deskripsi}} title="More Details" class="details-link">
                                         <i class="bi bi-link-45deg"></i>
                                     </a>
                                 </div>
