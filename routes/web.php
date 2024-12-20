@@ -14,7 +14,7 @@ use App\Http\Controllers\ServisController;
 use Illuminate\Support\Facades\Route;
 
 route::get('/', [HomeController::class, 'home'])->name('home');
-route::get('/detail-servis/{id}', [HomeController::class, 'servis'])->name('servis.detail');
+route::get('/', [HomeController::class, 'home'])->name('home');
 
 route::middleware(['guest'])->group(function () {
     route::get('/admin/login', [AdminLoginController::class, 'login'])->name('admin.login');
