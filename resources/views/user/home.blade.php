@@ -46,8 +46,6 @@
             <a href="index.html" class="logo d-flex align-items-center me-auto me-lg-0">
                 <!-- Uncomment the line below if you also wish to use an image logo -->
                 <!-- <img src="assets/img/logo.png" alt=""> -->
-                <h1 class="sitename">GP</h1>
-                <span>.</span>
             </a>
 
             <nav id="navmenu" class="navmenu">
@@ -84,7 +82,7 @@
                    <div class="col-xl-2 col-md-4" data-aos="fade-up" data-aos-delay="300">
                     <div class="icon-box">
                         <i class="bi bi-binoculars"></i>
-                        <h3><a href="">{{$servis->fasilitas}}</a></h3>
+                        <h3><a href="{{route('servis.detail', $servis->id_servis)}}">{{$servis->fasilitas}}</a></h3>
                     </div>
                     </div>
                    @endforeach
@@ -186,12 +184,12 @@
                             <div
                                 class="col-lg-4 col-md-6 portfolio-item isotope-item filter-{{ Str::slug($portfolio->kategori->nama_kategori, '-') }}">
                                 <img src="{{ asset('storage/' . $portfolio->foto) }}" class="img-fluid"
-                                    alt="" style="width: 300px; height: 300px; object-fit: cover;">
+                                    alt="" style="width: 350px; height: 350px; object-fit: cover;">
                                 <div class="portfolio-info">
                                     <h4>{{ $portfolio->nama_portfolio }}</h4>
                                     <p>{{ $portfolio->deskripsi }}</p>
-                                    <a href="{{ asset('assets_main/img/masonry-portfolio/masonry-portfolio-1.jpg') }}"
-                                        title="App 1" data-gallery="portfolio-gallery-app"
+                                    <a href="{{ asset('storage/' . $portfolio->foto) }}"
+                                        title="{{ $portfolio->nama_portfolio }}" data-gallery="portfolio-gallery-app"
                                         class="glightbox preview-link">
                                         <i class="bi bi-zoom-in"></i>
                                     </a>
@@ -389,11 +387,7 @@
                     <div class="col-lg-2 col-md-3 footer-links">
                         <h4>Our Services</h4>
                         <ul>
-                            <li><i class="bi bi-chevron-right"></i> <a href="#"> Web Design</a></li>
-                            <li><i class="bi bi-chevron-right"></i> <a href="#"> Web Development</a></li>
-                            <li><i class="bi bi-chevron-right"></i> <a href="#"> Product Management</a></li>
-                            <li><i class="bi bi-chevron-right"></i> <a href="#"> Marketing</a></li>
-                            <li><i class="bi bi-chevron-right"></i> <a href="#"> Graphic Design</a></li>
+                            <li><i class="bi bi-chevron-right"></i> <a href="#">{{$}}</a></li>
                         </ul>
                     </div>
 
