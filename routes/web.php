@@ -18,12 +18,7 @@ use App\Models\detailservis;
 use Illuminate\Support\Facades\Route;
 
 route::get('/', [HomeController::class, 'home'])->name('home');
-<<<<<<< HEAD
 route::get('/', [HomeController::class, 'home'])->name('home');
-=======
-route::get('/detail-servis/{id}', [detailservis::class, 'servis'])->name('servis.detail');
-route::get('/detail-portfolio/{id}', [detailportfolio::class, 'portfolio'])->name('portfolio.detail');
->>>>>>> 60be7aad1051b559c6746069b18923075fa8d148
 
 route::middleware(['guest'])->group(function () {
     route::get('/admin/login', [AdminLoginController::class, 'login'])->name('admin.login');
