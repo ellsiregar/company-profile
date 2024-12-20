@@ -31,7 +31,7 @@
                                         <tr>
                                             <th scope="row">{{ $loop->iteration }}</th>
                                             <td>{{ $servis->fasilitas }}</td>
-                                            <td>{{ $portfolio->deskripsi }}</td>
+                                            <td>{{ $servis->deskripsi }}</td>
                                             <td>
                                                 <a href="{{ route('admin.servis.edit', $servis->id) }}"
                                                     class="btn btn-warning btn-sm">Edit</a>

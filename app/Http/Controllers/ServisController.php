@@ -31,11 +31,14 @@ class ServisController extends Controller
     {
         $request->validate([
             'fasilitas'=> 'required',
+            'deskripsi' => 'nullable',
 
         ]);
 
         servis::create([
             'fasilitas'=> $request->fasilitas,
+            'deskripsi' => $request->deskripsi,
+
         ]);
 
         return redirect()->route('admin.servis')->with('success','Data servis Berhasil di Tambah');
@@ -70,9 +73,12 @@ class ServisController extends Controller
 
         $request->validate([
             'fasilitas' => 'required',
+            'deskripsi' => 'nullable',
         ]);
         $servis->update([
             'fasilitas' => $request->fasilitas,
+            'deskripsi' => $request->deskripsi,
+
         ]);
 
         return redirect()->route('admin.servis')->with('success', "Data Servis Berhasil di Edit");
