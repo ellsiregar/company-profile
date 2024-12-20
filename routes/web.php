@@ -18,8 +18,8 @@ use App\Models\detailservis;
 use Illuminate\Support\Facades\Route;
 
 route::get('/', [HomeController::class, 'home'])->name('home');
-route::get('/detail-servis/{id}', [detailservis::class, 'servis'])->name('servis.detail');
-route::get('/detail-portfolio/{id}', [detailportfolio::class, 'portfolio'])->name('portfolio.detail');
+route::get('/detail-servis/{id}', [DetailservisController::class, 'servis'])->name('servis.detail');
+route::get('/detail-portfolio/{id}', [DetailportfolioController::class, 'portfolio'])->name('portfolio.detail');
 
 route::middleware(['guest'])->group(function () {
     route::get('/admin/login', [AdminLoginController::class, 'login'])->name('admin.login');
