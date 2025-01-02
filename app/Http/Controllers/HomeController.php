@@ -21,21 +21,29 @@ class HomeController extends Controller
         $about = about::first();
         $company = company::first();
         $servis = servis::all();
+        $services = servis::all();
         $kategoris = kategori::all();
 
         $lokasi = $contact->lokasi; // Ambil nama lokasi dari field 'lokasi'
-        return view('user.home', compact('contact', 'teams','portfolios','about','company', 'servis', 'kategoris', 'lokasi'));
+        return view('user.home', compact('contact', 'teams','portfolios','about','company', 'servis', 'kategoris', 'lokasi', 'services'));
     }
 
     public function detailServis($id)
     {
         $servis = servis::find($id);
-        return view('user.detail_servis', compact('servis'));
+        $contact = contact::first();
+        $services = servis::all();
+        return view('user.detail_servis', compact('servis','contact','services'));
     }
 
     public function detailportfolio($id)
     {
         $portfolio = portfolio::find($id);
-        return view('user.detail_portfolio', compact('portfolio'));
+        $contact = contact::first();
+        $services = servis::all();
+        $about = about::first();
+        $portfolios = portfolio::all();
+        $kategoris = kategori::all();
+        return view('user.detail_portfolio', compact('portfolio','contact','services','about','portfolios','kategoris'));
     }
 }

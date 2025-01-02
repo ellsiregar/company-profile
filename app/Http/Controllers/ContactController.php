@@ -91,7 +91,7 @@ class ContactController extends Controller
 
         $contact->delete();
 
-        return redirect()->route('admin.contact')->with('success', 'contact berhasil dihapus!');
+        return redirect()->route('admin.contact')->with('Success', 'contact berhasil dihapus!');
 
     }
 }

@@ -64,7 +64,7 @@ class AdminController extends Controller
             'foto' => $foto,
         ]);
 
-        return redirect()->route('admin.profile')->with('success', "Data anda Berhasil di update");
+        return redirect()->route('admin.profile')->with('Success', "Data anda Berhasil di update");
 
     }
 

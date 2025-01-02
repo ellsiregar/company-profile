@@ -118,7 +118,7 @@ class TeamController extends Controller
 
         $team->delete();
 
-        return redirect()->route('admin.team')->with('success', 'team berhasil dihapus!');
+        return redirect()->route('admin.team')->with('Success', 'team berhasil dihapus!');
 
     }
 

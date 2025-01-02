@@ -78,14 +78,15 @@
                 </div>
 
                 <div class="row gy-4 mt-5 justify-content-center" data-aos="fade-up" data-aos-delay="200">
-                   @foreach ($servis as $servis )
-                   <div class="col-xl-2 col-md-4" data-aos="fade-up" data-aos-delay="300">
-                    <div class="icon-box">
-                        <i class="bi bi-binoculars"></i>
-                        <h3><a href="{{ route('detail.servis', $servis->id) }}">{{$servis->fasilitas}}</a></h3>
-                    </div>
-                    </div>
-                   @endforeach
+                    @foreach ($servis as $servis)
+                        <div class="col-xl-2 col-md-4" data-aos="fade-up" data-aos-delay="300">
+                            <div class="icon-box">
+                                <i class="bi bi-binoculars"></i>
+                                <h3><a href="{{ route('detail.servis', $servis->id) }}">{{ $servis->fasilitas }}</a>
+                                </h3>
+                            </div>
+                        </div>
+                    @endforeach
                 </div>
 
             </div>
@@ -193,7 +194,8 @@
                                         class="glightbox preview-link">
                                         <i class="bi bi-zoom-in"></i>
                                     </a>
-                                    <a href="{{ route('detail.portfolio', $portfolio->id_portfolio) }}" {{$portfolio->deskripsi}} title="More Details" class="details-link">
+                                    <a href="{{ route('detail.portfolio', $portfolio->id_portfolio) }}"
+                                        {{ $portfolio->deskripsi }} title="More Details" class="details-link">
                                         <i class="bi bi-link-45deg"></i>
                                     </a>
                                 </div>
@@ -361,9 +363,9 @@
                         </a>
                         <div class="footer-contact pt-3">
                             <p><strong>Alamat</strong></p>
-                            <p>{{$contact->lokasi}}</p>
-                            <p class="mt-3"><strong>Phone:</strong> <span>{{$contact->no_tlpn}}</span></p>
-                            <p><strong>Email:</strong> <span>{{$contact->email}}</span></p>
+                            <p>{{ $contact->lokasi }}</p>
+                            <p class="mt-3"><strong>Phone:</strong> <span>{{ $contact->no_tlpn }}</span></p>
+                            <p><strong>Email:</strong> <span>{{ $contact->email }}</span></p>
                         </div>
                         <div class="social-links d-flex mt-4">
                             <a href=""><i class="bi bi-twitter-x"></i></a>
@@ -386,34 +388,36 @@
                     <div class="col-lg-2 col-md-3 footer-links">
                         <h4>Our Services</h4>
                         <ul>
-                            <li><i class="bi bi-chevron-right"></i> <a href="#">{{$servis->fasilitas}}</a></li>
+                            @foreach ($services as $item)
+                                <li><i class="bi bi-chevron-right"></i> <a href="#">{{ $item->fasilitas }}</a>
+                                </li>
+                            @endforeach
                         </ul>
                     </div>
                 </div>
             </div>
         </div>
 
-        </div>
+    </footer>
+    <!-- Scroll Top -->
+    <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
+            class="bi bi-arrow-up-short"></i></a>
 
-        <!-- Scroll Top -->
-        <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
-                class="bi bi-arrow-up-short"></i></a>
+    <!-- Preloader -->
+    <div id="preloader"></div>
 
-        <!-- Preloader -->
-        <div id="preloader"></div>
+    <!-- Vendor JS Files -->
+    <script src="{{ asset('assets_main/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
+    <script src="{{ asset('assets_main/vendor/php-email-form/validate.js') }}"></script>
+    <script src="{{ asset('assets_main/vendor/aos/aos.js') }}"></script>
+    <script src="{{ asset('assets_main/vendor/swiper/swiper-bundle.min.js') }}"></script>
+    <script src="{{ asset('assets_main/vendor/glightbox/js/glightbox.min.js') }}"></script>
+    <script src="{{ asset('assets_main/vendor/imagesloaded/imagesloaded.pkgd.min.js') }}"></script>
+    <script src="{{ asset('assets_main/vendor/isotope-layout/isotope.pkgd.min.js') }}"></script>
+    <script src="{{ asset('assets_main/vendor/purecounter/purecounter_vanilla.js') }}"></script>
 
-        <!-- Vendor JS Files -->
-        <script src="{{ asset('assets_main/vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
-        <script src="{{ asset('assets_main/vendor/php-email-form/validate.js') }}"></script>
-        <script src="{{ asset('assets_main/vendor/aos/aos.js') }}"></script>
-        <script src="{{ asset('assets_main/vendor/swiper/swiper-bundle.min.js') }}"></script>
-        <script src="{{ asset('assets_main/vendor/glightbox/js/glightbox.min.js') }}"></script>
-        <script src="{{ asset('assets_main/vendor/imagesloaded/imagesloaded.pkgd.min.js') }}"></script>
-        <script src="{{ asset('assets_main/vendor/isotope-layout/isotope.pkgd.min.js') }}"></script>
-        <script src="{{ asset('assets_main/vendor/purecounter/purecounter_vanilla.js') }}"></script>
-
-        <!-- Main JS File -->
-        <script src="{{ asset('assets_main/js/main.js') }}"></script>
+    <!-- Main JS File -->
+    <script src="{{ asset('assets_main/js/main.js') }}"></script>
 
 </body>
 

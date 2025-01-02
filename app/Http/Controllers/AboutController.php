@@ -118,7 +118,7 @@ class AboutController extends Controller
 
         $about->delete();
 
-        return redirect()->route('admin.about')->with('success', 'about berhasil dihapus!');
+        return redirect()->route('admin.about')->with('Success', 'about berhasil dihapus!');
 
     }
 }

@@ -94,7 +94,7 @@ class CompanyController extends Controller
 
         $company->delete();
 
-        return redirect()->route('admin.company')->with('success', 'company berhasil dihapus!');
+        return redirect()->route('admin.company')->with('Success', 'company berhasil dihapus!');
 
     }
 }

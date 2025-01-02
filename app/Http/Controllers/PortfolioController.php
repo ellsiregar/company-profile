@@ -110,7 +110,7 @@ class PortfolioController extends Controller
             'foto' => $foto,
         ]);
 
-        return redirect()->route('admin.portfolio')->with('success', "Data portfolio Berhasil di Edit");
+        return redirect()->route('admin.portfolio')->with('Success', "Data portfolio Berhasil di Edit");
 
     }
 

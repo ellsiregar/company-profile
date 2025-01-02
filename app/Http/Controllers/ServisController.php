@@ -92,6 +92,6 @@ class ServisController extends Controller
         $servis = servis::findOrFail($id);
         $servis->delete();
 
-        return redirect()->route('admin.servis')->with('success', 'servis berhasil dihapus!');
+        return redirect()->route('admin.servis')->with('Success', 'servis berhasil dihapus!');
     }
 }
