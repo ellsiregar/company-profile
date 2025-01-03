@@ -22,7 +22,7 @@
             <div>
                 <div class="brand-logo d-flex align-items-center justify-content-center">
                     <a href="./index.html" class="text-nowrap logo-img mt-4">
-                        <img src="{{ asset('assets/images/profile/user-1.jpg') }}" alt="" width="80"
+                        <img src="{{ asset('storage/' . Auth::user()->foto) }}" alt="" width="80"
                                         height="80" class="rounded-circle">
                     </a>
                     <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
@@ -140,7 +140,7 @@
                             <li class="nav-item dropdown">
                                 <a class="nav-link nav-icon-hover" href="javascript:void(0)" id="drop2"
                                     data-bs-toggle="dropdown" aria-expanded="false">
-                                    <img src="{{ asset('assets/images/profile/user-1.jpg') }}" alt="" width="35"
+                                    <img src="{{ asset('storage/' . Auth::user()->foto) }}" alt="" width="35"
                                         height="35" class="rounded-circle">
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-end dropdown-menu-animate-up"
