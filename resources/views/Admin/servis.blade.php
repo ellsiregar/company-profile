@@ -23,6 +23,8 @@
                                         <th scope="col" class="ps-0">No</th>
                                         <th scope="col">fasilitas</th>
                                         <th scope="col">Deskripsi</th>
+                                        <th scope="col">Foto</th>
+
                                         <th scope="col">Action</th>
                                     </tr>
                                 </thead>
@@ -33,10 +35,13 @@
                                             <td>{{ $servis->fasilitas }}</td>
                                             <td>{{ $servis->deskripsi }}</td>
                                             <td>
-                                                <a href="{{ route('admin.servis.edit', $servis->id) }}"
-                                                    class="btn btn-warning btn-sm">Edit</a>
-                                                <a href="{{ route('admin.servis.delete', $servis->id) }}"
-                                                    onclick="return confirm('Yakin ingin hapus data?')"
+                                                <img src="{{ asset('storage/' . $servis->foto) }}" alt=""
+                                                    height="30">
+                                            </td>
+                                            <td>
+                                                <a
+                                                    href="{{ route('admin.servis.edit', $servis->id) }}"class="btn btn-warning btn-sm">Edit</a>
+                                                <a href="{{ route('admin.servis.delete', $servis->id) }}"onclick="return confirm('Yakin ingin hapus data?')"
                                                     class="btn btn-danger btn-sm">Hapus</a>
                                             </td>
                                         </tr>

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\servis;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ServisController extends Controller
 {
@@ -32,12 +33,24 @@ class ServisController extends Controller
         $request->validate([
             'fasilitas'=> 'required',
             'deskripsi' => 'nullable',
+            'foto' => 'nullable|image|mimes:jpeg,jpg,png,gif|max:2048',
 
         ]);
+        $foto = null;
+
+        if ($request->hasFile('foto')) {
+            $uniqueField = uniqid() . '-' . $request->file('foto')->getClientOriginalName();
+
+            $request->file('foto')->storeAs('foto_servis', $uniqueField, 'public');
+
+            $foto = 'foto_servis/' . $uniqueField;
+        }
+
 
         servis::create([
             'fasilitas'=> $request->fasilitas,
             'deskripsi' => $request->deskripsi,
+            'foto' => $foto,
 
         ]);
 
@@ -74,10 +87,24 @@ class ServisController extends Controller
         $request->validate([
             'fasilitas' => 'required',
             'deskripsi' => 'nullable',
+            'foto' => 'nullable|image|mimes:jpeg,jpg,png,gif|max:2048',
         ]);
+        $foto = $servis->foto;
+
+        if ($request->hasFile('foto')) {
+            if ($foto) {
+                Storage::disk('public')->delete($foto);
+            }
+            $uniqueField = uniqid() . '_' . $request->file('foto')->getClientOriginalName();
+
+            $request->file('foto')->storeAs('foto_servis', $uniqueField, 'public');
+            $foto = 'foto_servis/'. $uniqueField;
+        }
+
         $servis->update([
             'fasilitas' => $request->fasilitas,
             'deskripsi' => $request->deskripsi,
+            'foto' => $foto,
 
         ]);
 
@@ -89,7 +116,13 @@ class ServisController extends Controller
      */
     public function destroy(servis $servis, $id)
     {
-        $servis = servis::findOrFail($id);
+        $portfolio = servis::findOrFail($id);
+
+        // Hapus file foto
+        if ($servis->foto && Storage::exists('public/' . $servis->foto)) {
+            Storage::delete('public/' . $servis->foto);
+        }
+
         $servis->delete();
 
         return redirect()->route('admin.servis')->with('Success', 'servis berhasil dihapus!');
