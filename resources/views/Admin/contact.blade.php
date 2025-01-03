@@ -14,8 +14,10 @@
             <div class="card">
                 <div class="card-body">
                     <div class="table-responsive">
-                        <a href="{{ route('admin.contact.create') }}" class="btn btn-primary btn-sm">Tambah</a>
-                        <table class="table text-nowrap align-middle mb-0" id="events">
+                        @if ($contacts->isEmpty())
+                            <a href="{{ route('admin.contact.create') }}" class="btn btn-primary btn-sm">Tambah</a>
+                        @endif
+                        <table class="table text-nowrap align-middle mb-0" id="contactsTable">
                             <thead>
                                 <tr>
                                     <th>No</th>
@@ -25,8 +27,8 @@
                                     <th>Aksi</th>
                                 </tr>
                             </thead>
-                            @foreach ($contacts as $contact)
-                                <tbody>
+                            <tbody>
+                                @foreach ($contacts as $contact)
                                     <tr>
                                         <td>{{ $loop->iteration }}</td>
                                         <td>{{ $contact->no_tlpn }}</td>
@@ -37,11 +39,10 @@
                                                 class="btn btn-warning btn-sm">Edit</a>
                                             <a href="{{ route('admin.contact.delete', $contact->id_contact) }}"
                                                 onclick="return confirm('Yakin Ingin Menghapus Data Tersebut')"
-                                                class="btn btn-danger btn-sm">delete</a>
+                                                class="btn btn-danger btn-sm">Delete</a>
                                         </td>
                                     </tr>
-                                </tbody>
-                            @endforeach
+                                @endforeach
                             </tbody>
                         </table>
                     </div>
@@ -51,7 +52,7 @@
 
         <script>
             $(document).ready(function() {
-                $('#events').DataTable();
+                $('#contactsTable').DataTable();
             });
         </script>
 
