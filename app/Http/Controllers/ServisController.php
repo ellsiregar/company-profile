@@ -114,9 +114,9 @@ class ServisController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(servis $servis, $id)
+    public function delete(servis $servis, $id)
     {
-        $portfolio = servis::findOrFail($id);
+        $servis = servis::findOrFail($id);
 
         // Hapus file foto
         if ($servis->foto && Storage::exists('public/' . $servis->foto)) {

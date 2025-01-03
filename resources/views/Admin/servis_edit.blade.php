@@ -14,7 +14,7 @@
                 <h6 class="mb-4">Edit Servis</h6>
                 <div class="card">
                     <div class="card-body">
-                        <form action="{{ route('admin.servis.update', $servis->id) }}" method="POST">
+                        <form action="{{ route('admin.servis.update', $servis->id) }}" method="POST" enctype="multipart/form-data">
                             @csrf
                             @method('PUT')
                             <!-- No Telepon Input -->
