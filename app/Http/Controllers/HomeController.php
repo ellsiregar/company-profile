@@ -33,7 +33,8 @@ class HomeController extends Controller
         $servis = servis::find($id);
         $contact = contact::first();
         $services = servis::all();
-        return view('user.detail_servis', compact('servis','contact','services'));
+        $about = about::first();
+        return view('user.detail_servis', compact('servis','contact','services','about'));
     }
 
     public function detailportfolio($id)
