@@ -31,14 +31,15 @@
                             </div>
                         </div>
                         <div class="mb-3">
-                            <label for="deskripsi" class="form-label">deskripsi</label>
-                            <input type="text" class="form-control" id="deskripsi" name="deskripsi">
+                            <label for="deskripsi" class="form-label">Deskripsi</label>
+                            <textarea class="form-control" id="deskripsi" name="deskripsi" rows="4"></textarea>
                             <div class="text-danger">
                                 @error('deskripsi')
                                 {{ $message }}
                                 @enderror
                             </div>
                         </div>
+
                         <button type="submit" class="btn btn-primary">Simpan</button>
                     </form>
                 </div>

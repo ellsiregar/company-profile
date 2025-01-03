@@ -20,8 +20,8 @@ return new class extends Migration
                   ->onDelete('cascade')
                   ->onUpdate('cascade');
             $table->string('nama_portfolio', 50);
-            $table->string('deskripsi' ,255);
-            $table->string('foto')->nullable();
+            $table->string('deskripsi', 255);
+            $table->string('foto', 255)->nullable();
             $table->timestamps();
         });
     }

@@ -22,13 +22,14 @@
                         <!-- Nama Input -->
                         <div class="mb-3">
                             <label for="deskripsi" class="form-label">Deskripsi</label>
-                            <input type="text" class="form-control" id="deskripsi" name="deskripsi" value="{{ old('deskripsi', $about->deskripsi) }}" required>
+                            <textarea class="form-control" id="deskripsi" name="deskripsi" rows="4" required>{{ old('deskripsi', $about->deskripsi) }}</textarea>
                             <div class="text-danger">
                                 @error('deskripsi')
                                     {{ $message }}
                                 @enderror
                             </div>
                         </div>
+
                         <!-- Foto Input -->
                         <div class="mb-3">
                             <label for="foto" class="form-label">Foto</label>

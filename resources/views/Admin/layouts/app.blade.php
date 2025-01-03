@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>SeoDash Free Bootstrap Admin Template by Adminmart</title>
+    <title>Halaman Admin</title>
     <link rel="shortcut icon" type="image/png" href="{{ asset('assets/images/logos/seodashlogo.png') }}" />
     <link rel="stylesheet" href="{{ asset('assets/css/styles.min.css') }}" />
 
@@ -164,10 +164,9 @@
             <div class="container-fluid">
                 @yield('content')
                 <div class="py-6 px-6 text-center">
-                    <p class="mb-0 fs-4">Design and Developed by <a href="https://adminmart.com/" target="_blank"
-                            class="pe-1 text-primary text-decoration-underline">AdminMart.com</a>Distributed by <a
-                            href="https://themewagon.com/" target="_blank"
-                            class="pe-1 text-primary text-decoration-underline">ThemeWagon</a></p>
+                    <p class="mb-0 fs-4">Design and Developed by <a target="_blank"
+                            class="pe-1 text-primary text-decoration-underline">elisabet</a>Distributed by <a
+                            class="pe-1 text-primary text-decoration-underline">frisca</a></p>
                 </div>
             </div>
         </div>

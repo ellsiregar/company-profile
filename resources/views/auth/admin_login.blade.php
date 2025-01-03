@@ -4,7 +4,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>SeoDash Free Bootstrap Admin Template by Adminmart</title>
+  <title>Admin Login</title>
   <link rel="shortcut icon" type="image/png" href="{{ asset('assets/images/logos/seodashlogo.png') }}" />
   <link rel="stylesheet" href="{{ asset('assets/css/styles.min.css') }}" />
 </head>
@@ -20,9 +20,9 @@
           <div class="col-md-8 col-lg-6 col-xxl-3">
             <div class="card mb-0">
               <div class="card-body">
-                <a href="./index.html" class="text-nowrap logo-img text-center d-block py-3 w-100">
-                  <img src="{{ asset('../assets/images/logos/logo-light.svg') }}" alt="">
-                </a>
+                <div class="d-flex align-items-center justify-content-center mb-3">
+                    <h3>Login</h3>
+                </div>
                 <p class="text-center">Your Social Campaigns</p>
                 <form action="{{ route('admin.auth') }}" method="POST">
                     @csrf

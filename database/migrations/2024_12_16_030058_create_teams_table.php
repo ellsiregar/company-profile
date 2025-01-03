@@ -14,7 +14,7 @@ return new class extends Migration
         Schema::create('teams', function (Blueprint $table) {
             $table->integer('id_team')->primary()->autoIncrement();
             $table->string('nama', 50);
-            $table->string('foto')->nullable();
+            $table->string('foto', 255)->nullable();
             $table->timestamps();
         });
     }
