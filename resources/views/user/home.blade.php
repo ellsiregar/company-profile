@@ -100,11 +100,19 @@
 
                 <div class="row gy-4">
                     <div class="col-lg-6 order-1 order-lg-2">
-                        <img src="{{ asset('storage/' . $about->foto) }}" class="img-fluid" alt="">
+                       @if (!empty($about->foto))
+                       <img src="{{ asset('storage/' . $about->foto) }}" class="img-fluid" alt="">
+                       @else
+                       <p> Foto belum tersedia. </p>
+                       @endif
                     </div>
                     <div class="col-lg-6 order-2 order-lg-1 content">
                         <h3>Lisfera Caffe</h3>
+                        @if (!empty($about->deskripsi))
                         <p> {{ $about->deskripsi }}</p>
+                        @else
+                        <P> deskripsi belum tersedia </P>
+                        @endif
                     </div>
                 </div>
 

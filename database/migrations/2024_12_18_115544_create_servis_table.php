@@ -14,6 +14,8 @@ return new class extends Migration
         Schema::create('servis', function (Blueprint $table) {
             $table->id();
             $table->string('fasilitas', 50);
+            $table->string('deskripsi' ,255);
+            $table->string('foto')->nullable();
             $table->timestamps();
         });
     }

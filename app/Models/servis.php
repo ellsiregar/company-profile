@@ -11,6 +11,9 @@ class servis extends Model
 
     protected $fillable = [
         'fasilitas',
+        'deskripsi',
+        'foto',
+
     ];
 
 }
