@@ -32,7 +32,7 @@
                                 <th scope="row">{{ $loop->iteration }}</th>
                                 <td>{{$portfolio->kategori->nama_kategori}}</td>
                                 <td>{{$portfolio->nama_portfolio}}</td>
-                                <td>{{$portfolio->deskripsi}}</td>
+                                <td>{{ Str::limit($portfolio->deskripsi, 50, '...') }}</td>
                                 <td>
                                     <img src="{{ asset('storage/' . $portfolio->foto) }}" alt="" height="30">
                                 </td>

@@ -141,7 +141,7 @@
                         <div class="footer-contact pt-3">
                             <p><strong>Alamat</strong></p>
                             <p>{{ $contact->lokasi }}</p>
-                            <p class="mt-3"><strong>Phone:</strong> <span>{{ $contact->no_tlpn }}</span></p>
+                            <p><strong>Phone:</strong> <span>{{ $contact->no_tlpn }}</span></p>
                             <p><strong>Email:</strong> <span>{{ $contact->email }}</span></p>
                         </div>
                         <div class="social-links d-flex mt-4">

@@ -9,7 +9,7 @@
     <meta name="keywords" content="">
 
     <!-- Favicons -->
-    <link href="{{ asset('assets_main/img/favicon.png') }}" rel="icon">
+    <link href="{{ asset('assets_main/img/user.jpeg') }}" rel="icon">
     <link href="{{ asset('assets_main/img/apple-touch-icon.png') }}" rel="apple-touch-icon">
 
     <!-- Fonts -->
@@ -237,7 +237,7 @@
                                 <div class="member-img">
                                     @if (!empty($team->foto))
                                         <img src="{{ asset('storage/' . $team->foto) }}" class="img-fluid"
-                                            alt="">
+                                            alt="" style="width: 300px; height: 300px; object-fit: cover;">
                                     @else
                                         <p>Foto belum tersedia.</p>
                                     @endif
@@ -372,7 +372,7 @@
                         <div class="footer-contact pt-3">
                             <p><strong>Alamat</strong></p>
                             <p>{{ $contact->lokasi }}</p>
-                            <p class="mt-3"><strong>Phone:</strong> <span>{{ $contact->no_tlpn }}</span></p>
+                            <p><strong>Phone:</strong> <span>{{ $contact->no_tlpn }}</span></p>
                             <p><strong>Email:</strong> <span>{{ $contact->email }}</span></p>
                         </div>
                         <div class="social-links d-flex mt-4">

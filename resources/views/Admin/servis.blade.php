@@ -16,10 +16,9 @@
             <div class="card">
                 <div class="card-body">
                     <div class="table-responsive">
-                        @if ($servis->isEmpty())
-                            <a href="{{ route('admin.servis.create') }}" class="btn btn-primary btn-sm">Tambah</a>
-                        @endif
-                        <table class="table" id="servis">
+                    <a href="{{route('admin.portfolio.create')}}" class="btn btn-primary btn-sm">Tambah</a>
+                    <div class="table-responsive">
+                    <table class="table text-nowrap align-middle mb-0" id="servis">
                             <thead>
                                 <tr>
                                     <th scope="col" class="ps-0">No</th>
@@ -34,7 +33,7 @@
                                     <tr>
                                         <th scope="row">{{ $loop->iteration }}</th>
                                         <td>{{ $item->fasilitas }}</td>
-                                        <td>{{ $item->deskripsi }}</td>
+                                        <td>{{ Str::limit($item->deskripsi, 50, '...') }}</td>
                                         <td>
                                             <img src="{{ asset('storage/' . $item->foto) }}" alt="" height="30">
                                         </td>

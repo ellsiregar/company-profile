@@ -1,6 +1,6 @@
 @extends('admin.layouts.app')
 
-@section('title', 'Tambah Contact')
+@section('title', 'Tambah Kategori')
 
 @section('content')
 <div class="row g-4">
@@ -11,7 +11,7 @@
                     {{ session('success') }}
                 </div>
             @endif
-            <h6 class="mb-4">Tambah Contact</h6>
+            <h6 class="mb-4">Tambah Kategori</h6>
             <div class="card">
                 <div class="card-body">
                     <form action="{{ route('admin.kategori.store') }}" method="POST">

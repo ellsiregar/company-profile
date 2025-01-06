@@ -26,7 +26,7 @@
 
                         <div class="mb-3">
                             <label for="judul" class="form-label">Judul</label>
-                            <textarea class="form-control" id="judul" name="judul" rows="4">{{ old('judul', $company->judul) }}</textarea>
+                            <input type="text" class="form-control" id="judul" name="judul" value="{{ old('judul', $company->judul) }}">
                             <div class="text-danger">
                                 @error('judul')
                                 {{ $message }}
@@ -34,10 +34,10 @@
                             </div>
                         </div>
                         <div class="mb-3">
-                            <label for="judul" class="form-label">Judul</label>
-                            <textarea class="form-control" id="judul" name="judul" rows="4">{{ old('judul', $company->judul) }}</textarea>
+                            <label for="deskripsi" class="form-label">Deskripsi</label>
+                            <textarea class="form-control" id="deskripsi" name="deskripsi" rows="4">{{ old('deskripsi', $company->deskripsi) }}</textarea>
                             <div class="text-danger">
-                                @error('judul')
+                                @error('deskripsi')
                                 {{ $message }}
                                 @enderror
                             </div>

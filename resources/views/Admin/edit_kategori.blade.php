@@ -1,6 +1,6 @@
 @extends('admin.layouts.app')
 
-@section('title', 'Edit kategori')
+@section('title', 'Edit Kategori')
 
 @section('content')
     <div class="row g-4">
@@ -11,7 +11,7 @@
                         {{ session('success') }}
                     </div>
                 @endif
-                <h6 class="mb-4">Edit Contact</h6>
+                <h6 class="mb-4">Edit Kategori</h6>
                 <div class="card">
                     <div class="card-body">
                         <form action="{{ route('admin.kategori.update', $kategori->id_kategori) }}" method="POST">
@@ -19,7 +19,7 @@
                             @method('PUT')
                             <!-- No Telepon Input -->
                             <div class="mb-3">
-                                <label for="nama_kategori" class="form-label">No Telepon</label>
+                                <label for="nama_kategori" class="form-label">Nama Kategori</label>
                                 <input type="text" class="form-control" id="nama_kategori" name="nama_kategori"
                                     value="{{ old('nama_kategori', $kategori->nama_kategori) }}" required>
                                 <div class="text-danger">

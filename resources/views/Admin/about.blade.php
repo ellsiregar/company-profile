@@ -32,7 +32,7 @@
                                 @foreach ($abouts as $about)
                                     <tr>
                                         <th scope="row">{{ $loop->iteration }}</th>
-                                        <td>{{ $about->deskripsi }}</td>
+                                        <td>{{ Str::limit($about->deskripsi, 50, '...') }}</td>
                                         <td>
                                             <img src="{{ asset('storage/' . $about->foto) }}" alt="" height="30">
                                         </td>

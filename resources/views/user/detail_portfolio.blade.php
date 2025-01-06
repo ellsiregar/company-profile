@@ -40,7 +40,7 @@
 
 <body class="portfolio-details-page">
 
-    <header id="header" class="header d-flex align-items-center fixed-top">
+    <header id="header" class="header d-flex align-items-center position-relative">
         <div class="container-fluid container-xl position-relative d-flex align-items-center justify-content-between">
 
             <a href="index.html" class="logo d-flex align-items-center me-auto me-lg-0">
@@ -58,6 +58,7 @@
                 </ul>
                 <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
             </nav>
+
         </div>
     </header>
 
@@ -70,7 +71,7 @@
                     <div class="row d-flex justify-content-center text-center">
                         <div class="col-lg-8">
                             <h1>Portfolio Details</h1>
-                            <p class="mb-0">{{$about->deskripsi}}</p>
+                            {{-- <p class="mb-0">{{$about->deskripsi}}</p> --}}
                         </div>
                     </div>
                 </div>
@@ -114,7 +115,8 @@
                             <div class="swiper-wrapper align-items-center">
 
                                 <div class="swiper-slide">
-                                    <img src="{{ asset('storage/' . $portfolio->foto) }}" alt="" style="height: 550px; object-fit: cover;">
+                                    <img src="{{ asset('storage/' . $portfolio->foto) }}" alt=""
+                                        style="height: 550px; object-fit: cover;">
                                 </div>
 
                             </div>
@@ -124,14 +126,14 @@
 
                     <div class="col-lg-4">
                         <div class="portfolio-info" data-aos="fade-up" data-aos-delay="200">
-                            <h3>Project information</h3>
+                            <h3>Project Information</h3>
                             <ul>
                                 <li><strong>Category</strong>: {{ $portfolio->kategori->nama_kategori }}</li>
                             </ul>
                         </div>
                         <div class="portfolio-description" data-aos="fade-up" data-aos-delay="300">
                             <h2>{{ $portfolio->nama_portfolio }}</h2>
-                            <p>{{$portfolio->deskripsi}}</p>
+                            <p>{{ $portfolio->deskripsi }}</p>
                         </div>
                     </div>
 
@@ -155,7 +157,7 @@
                         <div class="footer-contact pt-3">
                             <p><strong>Alamat</strong></p>
                             <p>{{ $contact->lokasi }}</p>
-                            <p class="mt-3"><strong>Phone:</strong> <span>{{ $contact->no_tlpn }}</span></p>
+                            <p><strong>Phone:</strong> <span>{{ $contact->no_tlpn }}</span></p>
                             <p><strong>Email:</strong> <span>{{ $contact->email }}</span></p>
                         </div>
                         <div class="social-links d-flex mt-4">
@@ -189,7 +191,7 @@
             </div>
         </div>
 
-    </footer> 
+    </footer>
 
     <!-- Scroll Top -->
     <a href="#" id="scroll-top" class="scroll-top d-flex align-items-center justify-content-center"><i
