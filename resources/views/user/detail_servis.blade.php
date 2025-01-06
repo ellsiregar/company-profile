@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <title>Service Details - Gp Bootstrap Template</title>
+    <title>Lisfera Coffe</title>
     <meta name="description" content="">
     <meta name="keywords" content="">
 
@@ -71,7 +71,7 @@
               <div class="row d-flex justify-content-center text-center">
                 <div class="col-lg-8">
                   <h1>Service Details</h1>
-                  <p class="mb-0">{{$about->deskripsi}}</p>
+                  {{-- <p class="mb-0">{{$about->deskripsi}}</p> --}}
                 </div>
               </div>
             </div>
@@ -99,7 +99,7 @@
                   <h4>Serices List</h4>
                   <div class="services-list">
                     @foreach ($services as $item)
-                    <a href="#" class=""><i class="bi bi-arrow-right-circle"></i><span>{{ $item->fasilitas }}</span></a>
+                    <a href="{{ route('detail.servis', $item->id) }}" class=""><i class="bi bi-arrow-right-circle"></i><span>{{ $item->fasilitas }}</span></a>
                     @endforeach
                   </div>
                 </div><!-- End Services List -->
@@ -166,7 +166,7 @@
                         <h4>Our Services</h4>
                         <ul>
                             @foreach ($services as $item)
-                                <li><i class="bi bi-chevron-right"></i> <a href="#">{{ $item->fasilitas }}</a>
+                                <li><i class="bi bi-chevron-right"></i> <a href="{{ route('detail.servis', $item->id) }}">{{ $item->fasilitas }}</a>
                                 </li>
                             @endforeach
                         </ul>
