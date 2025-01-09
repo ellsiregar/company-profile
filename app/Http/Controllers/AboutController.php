@@ -22,7 +22,14 @@ class AboutController extends Controller
      */
     public function create()
     {
-        return view('admin.tambah_about');
+        $about = about::first();
+        if ($about) {
+            return redirect()->back();
+        } else {
+            return view('admin.tambah_about');
+        }
+
+
     }
 
     /**

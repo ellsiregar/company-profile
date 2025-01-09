@@ -16,7 +16,7 @@
             <div class="card">
                 <div class="card-body">
                     <div class="table-responsive">
-                    <a href="{{route('admin.portfolio.create')}}" class="btn btn-primary btn-sm">Tambah</a>
+                    <a href="{{route('admin.servis.create')}}" class="btn btn-primary btn-sm">Tambah</a>
                     <div class="table-responsive">
                     <table class="table text-nowrap align-middle mb-0" id="servis">
                             <thead>

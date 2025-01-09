@@ -27,8 +27,8 @@
                             @csrf
                             @method('PUT')
                             <div class="mb-3">
-                                <label for="user_name" class="form-label">User Name</label>
-                                <input type="text" class="form-control" id="user_name" name="username"
+                                <label for="username" class="form-label">User Name</label>
+                                <input type="text" class="form-control" id="username" name="username"
                                     value="{{ old('username', $profile->username) }}">
                                 <div class="text-danger">
                                     @error('user_name')
