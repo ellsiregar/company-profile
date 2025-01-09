@@ -106,19 +106,19 @@ class AboutController extends Controller
     }
 
 
-    public function delete(about $about, $id)
-    {
+    public function delete(About $about, $id)
+{
+    $about = About::findOrFail($id);
 
-        $about = about::findOrFail($id);
-
-        // Hapus file foto
-        if ($about->foto && Storage::exists('public/' . $about->foto)) {
-            Storage::delete('public/' . $about->foto);
-        }
-
-        $about->delete();
-
-        return redirect()->route('admin.about')->with('Success', 'about berhasil dihapus!');
-
+    // Hapus file foto jika ada
+    if ($about->foto && Storage::disk('public')->exists($about->foto)) {
+        Storage::disk('public')->delete($about->foto);
     }
+
+    // Hapus data dari database
+    $about->delete();
+
+    return redirect()->route('admin.about')->with('success', 'About berhasil dihapus!');
+}
+
 }

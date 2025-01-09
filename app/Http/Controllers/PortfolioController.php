@@ -119,19 +119,19 @@ class PortfolioController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function delete(portfolio $portfolio, $id)
+    public function delete(Portfolio $portfolio, $id)
     {
+    $portfolio = Portfolio::findOrFail($id);
 
-        $portfolio = portfolio::findOrFail($id);
-
-        // Hapus file foto
-        if ($portfolio->foto && Storage::exists('public/' . $portfolio->foto)) {
-            Storage::delete('public/' . $portfolio->foto);
-        }
-
-        $portfolio->delete();
-
-        return redirect()->route('admin.portfolio')->with('success', 'portfolio berhasil dihapus!');
-
+    // Hapus file foto
+    if ($portfolio->foto && Storage::disk('public')->exists($portfolio->foto)) {
+        Storage::disk('public')->delete($portfolio->foto);
     }
+
+    // Hapus data dari database
+    $portfolio->delete();
+
+    return redirect()->route('admin.portfolio')->with('success', 'Portfolio berhasil dihapus!');
+    }
+
 }

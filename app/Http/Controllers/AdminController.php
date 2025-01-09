@@ -35,37 +35,38 @@ class AdminController extends Controller
 
     public function update(Request $request)
     {
-        $id = Auth::user()->id;
-        $admin = User::find($id);
+    $id = Auth::user()->id;
+    $admin = User::find($id);
 
-        $request->validate([
-            'username' => 'required|unique:users,username,' .$id .',id',
-            'password' => 'nullable|min:6',
-            'nama_admin' => 'required',
-            'foto' => 'nullable|image|mimes:jpeg,jpg,png,gif|max:2048',
-        ]);
+    $request->validate([
+        'username' => 'required|unique:users,username,' . $id . ',id',
+        'password' => 'nullable|min:6',
+        'nama_admin' => 'required',
+        'foto' => 'nullable|image|mimes:jpeg,jpg,png,gif|max:2048',
+    ]);
 
-        $foto = $admin->foto;
+    $foto = $admin->foto;
 
-        if ($request->hasFile('foto')) {
-            if ($foto) {
-                Storage::disk('public')->delete($foto);
-            }
-            $uniqueField = uniqid() . '_' . $request->file('foto')->getClientOriginalName();
-
-            $request->file('foto')->storeAs('foto_admin', $uniqueField, 'public');
-            $foto = 'foto_admin/'. $uniqueField;
+    if ($request->hasFile('foto')) {
+        if ($foto) {
+            Storage::disk('public')->delete($foto);
         }
+        $uniqueField = uniqid() . '_' . $request->file('foto')->getClientOriginalName();
+        $request->file('foto')->storeAs('foto_admin', $uniqueField, 'public');
+        $foto = 'foto_admin/' . $uniqueField;
+    }
 
-        $admin->update([
-            'username'=> $request->username,
-            'password'=> $request->filled('password') ? Hash::make($request->password) : $admin->password,
-            'nama_admin'=> $request->nama_admin,
-            'foto' => $foto,
-        ]);
+    $admin->update([
+        'username' => $request->username,
+        'password' => $request->filled('password') ? Hash::make($request->password) : $admin->password,
+        'nama_admin' => $request->nama_admin,
+        'foto' => $foto,
+    ]);
 
-        return redirect()->route('admin.profile')->with('Success', "Data anda Berhasil di update");
+    // Refresh user session data
+    Auth::setUser($admin);
 
+    return redirect()->route('admin.profile')->with('success', "Data Anda Berhasil di-update");
     }
 
 

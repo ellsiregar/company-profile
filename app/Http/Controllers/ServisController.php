@@ -114,17 +114,19 @@ class ServisController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function delete(servis $servis, $id)
+    public function delete(Servis $servis, $id)
     {
-        $servis = servis::findOrFail($id);
+    $servis = Servis::findOrFail($id);
 
-        // Hapus file foto
-        if ($servis->foto && Storage::exists('public/' . $servis->foto)) {
-            Storage::delete('public/' . $servis->foto);
-        }
-
-        $servis->delete();
-
-        return redirect()->route('admin.servis')->with('Success', 'servis berhasil dihapus!');
+    // Hapus file foto
+    if ($servis->foto && Storage::disk('public')->exists($servis->foto)) {
+        Storage::disk('public')->delete($servis->foto);
     }
+
+    // Hapus data dari database
+    $servis->delete();
+
+    return redirect()->route('admin.servis')->with('success', 'Servis berhasil dihapus!');
+    }
+
 }
