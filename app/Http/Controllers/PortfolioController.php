@@ -35,8 +35,8 @@ class PortfolioController extends Controller
         $request->validate([
             'id_kategori' => 'required',
             'nama_portfolio' => 'required',
-            'foto' => 'nullable|image|mimes:jpeg,jpg,png,gif|max:2048',
-            'deskripsi' => 'nullable',
+            'foto' => 'required|image|mimes:jpeg,jpg,png,gif|max:2048',
+            'deskripsi' => 'required',
         ]);
 
         $foto = null;
@@ -89,7 +89,7 @@ class PortfolioController extends Controller
         $request->validate([
             'id_kategori' => 'required',
             'nama_portfolio' => 'required',
-            'deskripsi' => 'nullable',
+            'deskripsi' => 'required',
             'foto' => 'nullable|image|mimes:jpeg,jpg,png,gif|max:2048',
         ]);
         $foto = $portfolio->foto;

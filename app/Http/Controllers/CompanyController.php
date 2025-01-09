@@ -21,7 +21,13 @@ class CompanyController extends Controller
      */
     public function create()
     {
-       return view('Admin.company_tambah');
+        $company = company::first();
+        if ($company) {
+            return redirect()->back();
+        } else {
+            return view('Admin.company_tambah');
+        }
+
     }
 
     /**
@@ -55,7 +61,7 @@ class CompanyController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(company $company ,$id)
+    public function edit(company $company, $id)
     {
         $company = company::findOrFail($id);
         return view('Admin.company_edit', compact('company'));
@@ -64,7 +70,7 @@ class CompanyController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, company $company , $id)
+    public function update(Request $request, company $company, $id)
     {
 
         $request->validate([
@@ -95,6 +101,5 @@ class CompanyController extends Controller
         $company->delete();
 
         return redirect()->route('admin.company')->with('Success', 'company berhasil dihapus!');
-
     }
 }

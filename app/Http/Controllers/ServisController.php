@@ -32,8 +32,8 @@ class ServisController extends Controller
     {
         $request->validate([
             'fasilitas'=> 'required',
-            'deskripsi' => 'nullable',
-            'foto' => 'nullable|image|mimes:jpeg,jpg,png,gif|max:2048',
+            'deskripsi' => 'required',
+            'foto' => 'required|image|mimes:jpeg,jpg,png,gif|max:2048',
 
         ]);
         $foto = null;
@@ -86,7 +86,7 @@ class ServisController extends Controller
 
         $request->validate([
             'fasilitas' => 'required',
-            'deskripsi' => 'nullable',
+            'deskripsi' => 'required',
             'foto' => 'nullable|image|mimes:jpeg,jpg,png,gif|max:2048',
         ]);
         $foto = $servis->foto;

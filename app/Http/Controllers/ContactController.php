@@ -22,7 +22,12 @@ class ContactController extends Controller
      */
     public function create()
     {
-        return view('admin.tambah_contact');
+        $contact = Contact::first();
+        if ($contact) {
+            return redirect()->back();
+        } else {
+            return view('admin.tambah_contact');
+        }
     }
 
     /**
@@ -92,6 +97,5 @@ class ContactController extends Controller
         $contact->delete();
 
         return redirect()->route('admin.contact')->with('Success', 'contact berhasil dihapus!');
-
     }
 }

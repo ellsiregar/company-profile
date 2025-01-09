@@ -20,10 +20,9 @@
         <aside class="left-sidebar">
             <!-- Sidebar scroll-->
             <div>
-                <div class="brand-logo d-flex align-items-center justify-content-center">
-                    <a href="./index.html" class="text-nowrap logo-img mt-4">
-                        <img src="{{ asset('storage/' . Auth::user()->foto) }}" alt="" width="80"
-                                        height="80" class="rounded-circle">
+                <div class="brand-logo d-flex align-items-center justify-content-between">
+                    <a href="./index.html" class="text-nowrap logo-img">
+                        <img src="../assets/images/logos/logo-light.svg" alt="" />
                     </a>
                     <div class="close-btn d-xl-none d-block sidebartoggler cursor-pointer" id="sidebarCollapse">
                         <i class="ti ti-x fs-8"></i>
@@ -46,7 +45,7 @@
                         </li>
                         <li class="nav-small-cap">
                             <i class="ti ti-dots nav-small-cap-icon fs-6"></i>
-                            <span class="hide-menu">UI COMPONENTS</span>
+                            <span class="hide-menu">MENU</span>
                         </li>
                         <li class="sidebar-item">
                             <a class="sidebar-link" href="{{ route('admin.kategori') }}" aria-expanded="false">
@@ -56,7 +55,7 @@
                                 </span>
                                 <span class="hide-menu">Kategori</span>
                             </a>
-                    </li>
+                        </li>
                         <li class="sidebar-item">
                             <a class="sidebar-link" href="{{ route('admin.portfolio') }}" aria-expanded="false">
                                 <span>
@@ -82,14 +81,15 @@
                                 </span>
                                 <span class="hide-menu">Contact</span>
                             </a>
-                            <li class="sidebar-item">
-                                <a class="sidebar-link" href="{{ route('admin.company') }}" aria-expanded="false">
-                                    <span>
-                                        <iconify-icon icon="solar:bookmark-square-minimalistic-bold-duotone"
-                                            class="fs-6"></iconify-icon>
-                                    </span>
-                                    <span class="hide-menu">Company</span>
-                                </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link" href="{{ route('admin.company') }}" aria-expanded="false">
+                                <span>
+                                    <iconify-icon icon="solar:bookmark-square-minimalistic-bold-duotone"
+                                        class="fs-6"></iconify-icon>
+                                </span>
+                                <span class="hide-menu">Company</span>
+                            </a>
                         </li>
                         <li class="sidebar-item">
                             <a class="sidebar-link" href="{{ route('admin.about') }}" aria-expanded="false">
@@ -99,17 +99,17 @@
                                 </span>
                                 <span class="hide-menu">About</span>
                             </a>
-                    </li>
-                    <li class="sidebar-item">
-                        <a class="sidebar-link" href="{{ route('admin.servis') }}" aria-expanded="false">
-                            <span>
-                                <iconify-icon icon="solar:bookmark-square-minimalistic-bold-duotone"
-                                    class="fs-6"></iconify-icon>
-                            </span>
-                            <span class="hide-menu">Servis</span>
-                        </a>
-                </li>
-
+                        </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link" href="{{ route('admin.servis') }}" aria-expanded="false">
+                                <span>
+                                    <iconify-icon icon="solar:bookmark-square-minimalistic-bold-duotone"
+                                        class="fs-6"></iconify-icon>
+                                </span>
+                                <span class="hide-menu">Servis</span>
+                            </a>
+                        </li>
+                    </ul>
                 </nav>
                 <!-- End Sidebar navigation -->
             </div>
@@ -140,8 +140,8 @@
                             <li class="nav-item dropdown">
                                 <a class="nav-link nav-icon-hover" href="javascript:void(0)" id="drop2"
                                     data-bs-toggle="dropdown" aria-expanded="false">
-                                    <img src="{{ asset('storage/' . Auth::user()->foto) }}" alt="" width="35"
-                                        height="35" class="rounded-circle">
+                                    <img src="{{ asset('storage/' . Auth::user()->foto) }}" alt=""
+                                        width="35" height="35" class="rounded-circle">
                                 </a>
                                 <div class="dropdown-menu dropdown-menu-end dropdown-menu-animate-up"
                                     aria-labelledby="drop2">
@@ -174,7 +174,7 @@
     <script src="{{ asset('assets/libs/bootstrap/dist/js/bootstrap.bundle.min.js') }}"></script>
     <script src="{{ asset('assets/libs/apexcharts/dist/apexcharts.min.js') }}"></script>
     <script src="{{ asset('assets/libs/simplebar/dist/simplebar.js') }}"></script>
-    <script src="{{ asset('assets/js/sidebarmenu.js')}}"></script>
+    <script src="{{ asset('assets/js/sidebarmenu.js') }}"></script>
     <script src="{{ asset('assets/js/app.min.js') }}"></script>
     <script src="{{ asset('assets/js/dashboard.js') }}"></script>
     <script src="https://cdn.jsdelivr.net/npm/iconify-icon@1.0.8/dist/iconify-icon.min.js"></script>
