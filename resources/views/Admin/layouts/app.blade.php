@@ -21,7 +21,7 @@
             <!-- Sidebar scroll-->
             <div>
                 <div class="brand-logo d-flex align-items-center justify-content-center">
-                    <a href="./index.html" class="text-nowrap logo-img mt-4">
+                    <a href="{{ route('admin.dashboard') }}" class="text-nowrap logo-img mt-4">
                         <img src="{{ asset('storage/' . Auth::user()->foto) }}" alt="" width="80"
                                         height="80" class="rounded-circle">
                     </a>
@@ -39,7 +39,7 @@
                         <li class="sidebar-item">
                             <a class="sidebar-link" href="{{ route('admin.dashboard') }}" aria-expanded="false">
                                 <span>
-                                    <iconify-icon icon="solar:home-smile-bold-duotone" class="fs-6"></iconify-icon>
+                                    <iconify-icon icon="mdi:home" class="fs-6"></iconify-icon>
                                 </span>
                                 <span class="hide-menu">Dashboard</span>
                             </a>
@@ -51,8 +51,7 @@
                         <li class="sidebar-item">
                             <a class="sidebar-link" href="{{ route('admin.kategori') }}" aria-expanded="false">
                                 <span>
-                                    <iconify-icon icon="solar:bookmark-square-minimalistic-bold-duotone"
-                                        class="fs-6"></iconify-icon>
+                                    <iconify-icon icon="mdi:bookmark" class="fs-6"></iconify-icon>
                                 </span>
                                 <span class="hide-menu">Kategori</span>
                             </a>
@@ -60,8 +59,7 @@
                         <li class="sidebar-item">
                             <a class="sidebar-link" href="{{ route('admin.portfolio') }}" aria-expanded="false">
                                 <span>
-                                    <iconify-icon icon="solar:layers-minimalistic-bold-duotone"
-                                        class="fs-6"></iconify-icon>
+                                    <iconify-icon icon="mdi:layers-outline" class="fs-6"></iconify-icon>
                                 </span>
                                 <span class="hide-menu">Portfolio</span>
                             </a>
@@ -69,7 +67,7 @@
                         <li class="sidebar-item">
                             <a class="sidebar-link" href="{{ route('admin.team') }}" aria-expanded="false">
                                 <span>
-                                    <iconify-icon icon="solar:danger-circle-bold-duotone" class="fs-6"></iconify-icon>
+                                    <iconify-icon icon="mdi:account-group" class="fs-6"></iconify-icon>
                                 </span>
                                 <span class="hide-menu">Team</span>
                             </a>
@@ -77,8 +75,7 @@
                         <li class="sidebar-item">
                             <a class="sidebar-link" href="{{ route('admin.contact') }}" aria-expanded="false">
                                 <span>
-                                    <iconify-icon icon="solar:bookmark-square-minimalistic-bold-duotone"
-                                        class="fs-6"></iconify-icon>
+                                    <iconify-icon icon="mdi:phone-outline" class="fs-6"></iconify-icon>
                                 </span>
                                 <span class="hide-menu">Contact</span>
                             </a>
@@ -86,8 +83,7 @@
                         <li class="sidebar-item">
                             <a class="sidebar-link" href="{{ route('admin.company') }}" aria-expanded="false">
                                 <span>
-                                    <iconify-icon icon="solar:bookmark-square-minimalistic-bold-duotone"
-                                        class="fs-6"></iconify-icon>
+                                    <iconify-icon icon="mdi:domain" class="fs-6"></iconify-icon>
                                 </span>
                                 <span class="hide-menu">Company</span>
                             </a>
@@ -95,8 +91,7 @@
                         <li class="sidebar-item">
                             <a class="sidebar-link" href="{{ route('admin.about') }}" aria-expanded="false">
                                 <span>
-                                    <iconify-icon icon="solar:bookmark-square-minimalistic-bold-duotone"
-                                        class="fs-6"></iconify-icon>
+                                    <iconify-icon icon="mdi:information-outline" class="fs-6"></iconify-icon>
                                 </span>
                                 <span class="hide-menu">About</span>
                             </a>
@@ -104,14 +99,14 @@
                         <li class="sidebar-item">
                             <a class="sidebar-link" href="{{ route('admin.servis') }}" aria-expanded="false">
                                 <span>
-                                    <iconify-icon icon="solar:bookmark-square-minimalistic-bold-duotone"
-                                        class="fs-6"></iconify-icon>
+                                    <iconify-icon icon="mdi:tools" class="fs-6"></iconify-icon>
                                 </span>
                                 <span class="hide-menu">Servis</span>
                             </a>
                         </li>
                     </ul>
                 </nav>
+
                 <!-- End Sidebar navigation -->
             </div>
             <!-- End Sidebar scroll-->
