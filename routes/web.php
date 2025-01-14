@@ -9,12 +9,14 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\KategoriController;
 use App\Http\Controllers\TeamController;
 use App\Http\Controllers\PortfolioController;
+use App\Http\Controllers\ReviewController;
 use App\Http\Controllers\ServisController;
 use Illuminate\Support\Facades\Route;
 
 route::get('/', [HomeController::class, 'home'])->name('home');
 route::get('/detail-servis/{id}', [HomeController::class, 'detailServis'])->name('detail.servis');
 route::get('/detail-portfolio/{id}', [HomeController::class, 'detailportfolio'])->name('detail.portfolio');
+route::post('/review', [ReviewController::class, 'review'])->name('user.review');
 
 route::middleware(['guest'])->group(function () {
     route::get('/admin/login', [AdminLoginController::class, 'login'])->name('admin.login');

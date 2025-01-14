@@ -17,7 +17,7 @@
                 <div class="card-body">
                     <form action="{{ route('admin.about.store') }}" method="POST" enctype="multipart/form-data">
                         @csrf
-                        </div><div class="mb-3">
+                        <div class="mb-3">
                             <label for="deskripsi" class="form-label">Deskripsi</label>
                             <textarea class="form-control" id="deskripsi" name="deskripsi" rows="4"></textarea>
                             <div class="text-danger">

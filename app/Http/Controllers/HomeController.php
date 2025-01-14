@@ -7,6 +7,7 @@ use App\Models\company;
 use App\Models\contact;
 use App\Models\kategori;
 use App\Models\portfolio;
+use App\Models\Review;
 use App\Models\servis;
 use App\Models\team;
 use Illuminate\Http\Request;
@@ -23,9 +24,10 @@ class HomeController extends Controller
         $servis = servis::all();
         $services = servis::all();
         $kategoris = kategori::all();
+        $review = Review::all();
 
         $lokasi = $contact->lokasi; // Ambil nama lokasi dari field 'lokasi'
-        return view('user.home', compact('contact', 'teams','portfolios','about','company', 'servis', 'kategoris', 'lokasi', 'services'));
+        return view('user.home', compact('contact', 'teams','portfolios','about','company', 'servis', 'kategoris', 'lokasi', 'services','review'));
     }
 
     public function detailServis($id)

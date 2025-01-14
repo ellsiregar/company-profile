@@ -22,7 +22,7 @@
                         <table class="table" id="about">
                             <thead>
                                 <tr>
-                                    <th scope="col" class="ps-0">Nomor</th>
+                                    <th scope="col" class="ps-0">No</th>
                                     <th scope="col">Deskripsi</th>
                                     <th scope="col">Foto</th>
                                     <th scope="col">Action</th>

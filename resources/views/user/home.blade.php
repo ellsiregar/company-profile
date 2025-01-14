@@ -61,6 +61,7 @@
         </div>
     </header>
 
+
     <main class="main">
 
         <!-- Hero Section -->
@@ -72,6 +73,40 @@
 
                 <div class="row justify-content-center text-center" data-aos="fade-up" data-aos-delay="100">
                     <div class="col-xl-6 col-lg-8">
+                        @if (session('success'))
+                                <div class="alert alert-success alert-dismissible fade show custom-alert"
+                                    role="alert">
+                                    {{ session('success') }}
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert"
+                                        aria-label="Close"></button>
+                                </div>
+                            @endif
+                            <style>
+                                .custom-alert {
+                                    position: absolute;
+                                    top: 10%;
+                                    left: 50%;
+                                    transform: translateX(-50%);
+                                    width: 70%;
+                                    z-index: 1050;
+                                    padding: 15px;
+                                    border-radius: 5px;
+                                    background-color: #d4edda;
+                                    color: #155724;
+                                    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+                                }
+                            </style>
+                            <script>
+                                setTimeout(function() {
+                                    var alert = document.querySelector('.alert');
+                                    if (alert) {
+                                        alert.style.transition = 'opacity 0.7s ease';
+                                        alert.style.opacity = '0';
+                                        setTimeout(() => alert.remove(), 500);
+                                    }
+                                }, 5000);
+                            </script>
+
                         <h2>welcome lisfera coffe</h2>
                         <p>terimakasih sudah mengunjungi website kami</p>
                     </div>
@@ -100,18 +135,18 @@
 
                 <div class="row gy-4">
                     <div class="col-lg-6 order-1 order-lg-2">
-                       @if (!empty($about->foto))
-                       <img src="{{ asset('storage/' . $about->foto) }}" class="img-fluid" alt="">
-                       @else
-                       <p> Foto belum tersedia. </p>
-                       @endif
+                        @if (!empty($about->foto))
+                            <img src="{{ asset('storage/' . $about->foto) }}" class="img-fluid" alt="">
+                        @else
+                            <p> Foto belum tersedia. </p>
+                        @endif
                     </div>
                     <div class="col-lg-6 order-2 order-lg-1 content">
                         <h3>Lisfera Caffe</h3>
                         @if (!empty($about->deskripsi))
-                        <p> {{ $about->deskripsi }}</p>
+                            <p> {{ $about->deskripsi }}</p>
                         @else
-                        <P> deskripsi belum tersedia </P>
+                            <P> deskripsi belum tersedia </P>
                         @endif
                     </div>
                 </div>
@@ -119,53 +154,6 @@
             </div>
 
         </section><!-- /About Section -->
-
-        <!-- Clients Section -->
-        <section id="clients" class="clients section">
-
-            <div class="container" data-aos="fade-up" data-aos-delay="100">
-
-                <div class="swiper init-swiper">
-                    <script type="application/json" class="swiper-config">
-                            {
-                            "loop": true,
-                            "speed": 600,
-                            "autoplay": {
-                                "delay": 5000
-                            },
-                            "slidesPerView": "auto",
-                            "pagination": {
-                                "el": ".swiper-pagination",
-                                "type": "bullets",
-                                "clickable": true
-                            },
-                            "breakpoints": {
-                                "320": {
-                                "slidesPerView": 2,
-                                "spaceBetween": 40
-                                },
-                                "480": {
-                                "slidesPerView": 3,
-                                "spaceBetween": 60
-                                },
-                                "640": {
-                                "slidesPerView": 4,
-                                "spaceBetween": 80
-                                },
-                                "992": {
-                                "slidesPerView": 6,
-                                "spaceBetween": 120
-                                }
-                            }
-                            }
-                        </script>
-
-                    <div class="swiper-pagination"></div>
-                </div>
-
-            </div>
-
-        </section>
 
         <!-- Portfolio Section -->
         <section id="portfolio" class="portfolio section">
@@ -217,6 +205,63 @@
 
         </section><!-- /Portfolio Section -->
 
+        <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials section dark-background">
+
+        <img src="assets/img/testimonials-bg.jpg" class="testimonials-bg" alt="">
+
+        <div class="container" data-aos="fade-up" data-aos-delay="100">
+
+          <div class="swiper init-swiper">
+            <script type="application/json" class="swiper-config">
+              {
+                "loop": true,
+                "speed": 600,
+                "autoplay": {
+                  "delay": 5000
+                },
+                "slidesPerView": "auto",
+                "pagination": {
+                  "el": ".swiper-pagination",
+                  "type": "bullets",
+                  "clickable": true
+                }
+              }
+            </script>
+            <div class="swiper-wrapper">
+
+                @foreach ($review as $review)
+                <div class="swiper-slide">
+                  <div class="testimonial-item">
+                    <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
+                    <h3>{{ $review->name }}</h3>
+                    <h4>{{ $review->email }}</h4>
+                    <div class="stars">
+                      @for ($i = 1; $i <= 5; $i++)
+                        @if ($i <= $review->rating)
+                          <i class="bi bi-star-fill"></i> <!-- Bintang penuh -->
+                        @else
+                          <i class="bi bi-star"></i> <!-- Bintang kosong -->
+                        @endif
+                      @endfor
+                    </div>
+                    <p>
+                      <i class="bi bi-quote quote-icon-left"></i>
+                      <span>{{ $review->pesan }}</span>
+                      <i class="bi bi-quote quote-icon-right"></i>
+                    </p>
+                  </div>
+                </div><!-- End testimonial item -->
+                @endforeach
+
+            </div>
+            <div class="swiper-pagination"></div>
+          </div>
+
+        </div>
+
+      </section><!-- /Testimonials Section -->
+
         <!-- Team Section -->
         <section id="team" class="team section">
 
@@ -261,6 +306,98 @@
             </div>
 
         </section><!-- /Team Section -->
+
+        <!-- Review Section -->
+        <section id="review" class="review section">
+
+            <!-- Section Title -->
+            <div class="container section-title" data-aos="fade-up">
+                <h2>Review</h2>
+                <p>Give Your Feedback</p>
+            </div><!-- End Section Title -->
+
+            <div class="container" data-aos="fade-up" data-aos-delay="100">
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <form action="{{ route('user.review') }}" method="POST">
+                            @csrf
+
+                            <!-- Nama -->
+                            <div class="mb-3">
+                                <label for="name" class="form-label">Name</label>
+                                <input type="text" class="form-control" id="name" name="name"
+                                    placeholder="Your Name" required>
+                            </div>
+
+                            <!-- Email -->
+                            <div class="mb-3">
+                                <label for="email" class="form-label">Email</label>
+                                <input type="email" class="form-control" id="email" name="email"
+                                    placeholder="Your Email" required>
+                            </div>
+
+                            <!-- Rating Bintang -->
+                            <div class="mb-3">
+                                <label class="form-label">Rating</label>
+                                <div id="star-rating">
+                                    <input type="radio" id="star5" name="rating" value="5" />
+                                    <label for="star5" title="5 stars">&#9733;</label>
+                                    <input type="radio" id="star4" name="rating" value="4" />
+                                    <label for="star4" title="4 stars">&#9733;</label>
+                                    <input type="radio" id="star3" name="rating" value="3" />
+                                    <label for="star3" title="3 stars">&#9733;</label>
+                                    <input type="radio" id="star2" name="rating" value="2" />
+                                    <label for="star2" title="2 stars">&#9733;</label>
+                                    <input type="radio" id="star1" name="rating" value="1" />
+                                    <label for="star1" title="1 star">&#9733;</label>
+                                </div>
+                            </div>
+
+                            <!-- Ulasan -->
+                            <div class="mb-3">
+                                <label for="pesan" class="form-label">Review</label>
+                                <textarea class="form-control" id="pesan" name="pesan" rows="4" placeholder="Write your review here..."
+                                    required></textarea>
+                            </div>
+
+                            <!-- Tombol Submit -->
+                            <div class="text-center">
+                                <button type="submit" class="btn btn-primary">Submit Review</button>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <style>
+            #star-rating {
+                direction: rtl;
+                display: inline-flex;
+            }
+
+            #star-rating input[type="radio"] {
+                display: none;
+            }
+
+            #star-rating label {
+                font-size: 2rem;
+                color: #ccc;
+                cursor: pointer;
+                transition: color 0.2s ease-in-out;
+            }
+
+            #star-rating input[type="radio"]:checked~label {
+                color: #ffc107;
+            }
+
+            #star-rating label:hover,
+            #star-rating label:hover~label {
+                color: #ffc107;
+            }
+        </style>
 
         <!-- Contact Section -->
         <section id="contact" class="contact section">

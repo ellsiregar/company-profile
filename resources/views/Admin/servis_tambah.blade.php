@@ -26,7 +26,7 @@
                             </div>
                         </div>
                         <div class="mb-3">
-                            <label for="deskripsi" class="form-label">deskripsi</label>
+                            <label for="deskripsi" class="form-label">Deskripsi</label>
                             <textarea name="deskripsi" id="deskripsi" cols="30" rows="10" class="form-control"></textarea>
                             <div class="text-danger">
                                 @error('deskripsi')
