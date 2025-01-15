@@ -10,6 +10,7 @@
 
     <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
     <link rel="stylesheet" href="https://cdn.datatables.net/2.1.8/css/dataTables.bootstrap5.css">
+    <link href="{{ asset('assets_main/vendor/bootstrap-icons/bootstrap-icons.css') }}" rel="stylesheet">
 </head>
 
 <body>
@@ -104,6 +105,15 @@
                                 <span class="hide-menu">Servis</span>
                             </a>
                         </li>
+                        <li class="sidebar-item">
+                            <a class="sidebar-link" href="{{ route('admin.reviews') }}" aria-expanded="false">
+                                <span>
+                                    <iconify-icon icon="mdi:tools" class="fs-6"></iconify-icon>
+                                </span>
+                                <span class="hide-menu">Reviews</span>
+                            </a>
+                        </li>
+                        <br><br><br>
                     </ul>
                 </nav>
 
