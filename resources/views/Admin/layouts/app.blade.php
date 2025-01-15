@@ -108,11 +108,12 @@
                         <li class="sidebar-item">
                             <a class="sidebar-link" href="{{ route('admin.reviews') }}" aria-expanded="false">
                                 <span>
-                                    <iconify-icon icon="mdi:tools" class="fs-6"></iconify-icon>
+                                    <iconify-icon icon="mdi:star" class="fs-6"></iconify-icon>
                                 </span>
                                 <span class="hide-menu">Reviews</span>
                             </a>
                         </li>
+
                         <br><br><br>
                     </ul>
                 </nav>
