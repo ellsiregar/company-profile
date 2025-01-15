@@ -32,9 +32,10 @@ class ReviewController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function reviews()
     {
-        //
+        $reviews = Review::all();
+        return view('Admin.reviews', compact('reviews'));
     }
 
     /**
@@ -72,8 +73,13 @@ class ReviewController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Review $review)
+    public function delete(Review $reviews, $id)
     {
-        //
+
+        $reviews = Review::findOrFail($id);
+        $reviews->delete();
+
+        return redirect()->route('admin.reviews')->with('success', 'Reviews berhasil dihapus!');
+
     }
 }

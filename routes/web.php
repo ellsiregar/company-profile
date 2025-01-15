@@ -81,5 +81,8 @@ route::middleware(['admin'])->group(function () {
     route::put('/admin/servis/edit/{id}', [ServisController::class, 'update'])->name('admin.servis.update');
     route::get('/admin/servis/delete/{id}', [ServisController::class, 'delete'])->name('admin.servis.delete');
 
+    route::get('/admin/reviews', [ReviewController::class, 'reviews'])->name('admin.reviews');
+    route::get('/admin/reviews/delete/{id}', [ReviewController::class, 'delete'])->name('admin.reviews.delete');
+
 
 });
