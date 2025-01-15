@@ -208,7 +208,7 @@
         <!-- Testimonials Section -->
     <section id="testimonials" class="testimonials section dark-background">
 
-        <img src="assets/img/testimonials-bg.jpg" class="testimonials-bg" alt="">
+        <img src="{{ asset('assets_main/img/testimonials-bg.jpg') }}" class="testimonials-bg" alt="">
 
         <div class="container" data-aos="fade-up" data-aos-delay="100">
 
@@ -233,7 +233,6 @@
                 @foreach ($review as $review)
                 <div class="swiper-slide">
                   <div class="testimonial-item">
-                    <img src="assets/img/testimonials/testimonials-1.jpg" class="testimonial-img" alt="">
                     <h3>{{ $review->name }}</h3>
                     <h4>{{ $review->email }}</h4>
                     <div class="stars">
